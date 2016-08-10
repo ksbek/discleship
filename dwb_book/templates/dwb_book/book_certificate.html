@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load static %}
+
+<div class="certificate" style="position:relative;background:url('http://www.discipleshipworkbooks.com/media/workbook-certificate/certificate_bg_1.jpg');width:{{ book.certificate_background_width }}px;height:{{ book.certificate_background_height }}px;font-family:verdana">
+{% if LANGUAGE_CODE == "en" %}
+    <div style="font-size:35px;position:relative;top:140px;left:545px;font-weight:bold">{% trans "CONGRATULATIONS!" %}</div>
+{% elif LANGUAGE_CODE == "es" %}
+	<div style="font-size:35px;position:relative;top:140px;left:595px;font-weight:bold">{% trans "CONGRATULATIONS!" %}</div>
+{% else %}
+{% endif %}
+    <div style="position:relative;width:300px;font-size:13px;top:140px;left:230px;display:inline-block;vertical-align:top">{% trans "This is to certify that the below mentioned individual has completed all required materials for this workbook" %}</div>
+    <div style="position:relative;width:300px;font-size:13px;top:140px;left:700px;display:inline-block;vertical-align:top">{% blocktrans with number=copy.certificate_number %}Certificate Number {{ number }}{% endblocktrans %}<br>{% blocktrans with date=copy.completed_date %}Date of Completion {{ date }}{% endblocktrans %}</div>
+    <div style="position:relative;width:1130px;left:190px;text-align:center;font-size:50px;top:170px">{{ user.get_full_name }}</div>
+    <div style="position:relative;width:1130px;left:190px;text-align:center;font-size:16px;top:200px">{% if LANGUAGE_CODE == "en" %}{% blocktrans with title=book.title %}You have completed the {{ title }}{% endblocktrans %}{% elif LANGUAGE_CODE == "es" %}Ha completado el Manual de Discipulado{% else %}{% endif %}</div>
+    <div style="position:relative;width:1090px;margin:20px;left:190px;text-align:center;font-size:16px;top:230px">{% trans "Our prayer is that you would continue to strengthen your relationship with Jesus Christ and to fulfill your role as His disciple in your family, your church and your community. Now, share the knowledge you have gained and disciple others." %}</div>
+
+    <div style="position:relative;width:1130px;left:190px;text-align:center;font-size:15px;font-weight:bold;top:240px">{% trans "Matthew 28:19" %}<br>{% trans "Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son" %}</div>
+
+    <div style="position:relative;top:270px;left:230px"><img src="{% static 'img/craig_signature.png' %}"></div>
+    <div style="position:relative;width:300px;font-size:13px;top:270px;left:230px"><span>Craig Caster </span>{% trans "Founder/Director of" %}<br>Family Discipleship Ministries</div>
+</div>

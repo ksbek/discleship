@@ -1,0 +1,18 @@
+{% load webbook %}
+Dear {{ purchase.buyer_name }},
+
+Thank you for your purchase of {{ purchase.book.title }}. Your invoice is bellow:
+
+{{ purchase.book.title }} {% if purchase.quantity > 1 %}x{{ purchase.quantity }} {% endif %}- {{ purchase.total_charge|price }}
+
+Total: {{ purchase.total_charge|price }}
+
+{% if purchase.gift_code %}
+Gift Code: {{ purchase.gift_code }}
+
+Redeem at: {{ redeem_url }}
+{% endif %}
+
+Sincerely,
+Discipleship Workbooks Team
+

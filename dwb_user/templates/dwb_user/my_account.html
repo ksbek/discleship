@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="my-account-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h4>{% trans "My Account" %}</h4>
+
+                <h1>{{ user.get_full_name }}</h1>
+
+                <div class="inner-navigation">
+                    <ul>
+                        <li><a href="{% url 'edit_profile' %}">{% trans "EDIT PROFILE" %}</a></li>
+                        <li><a href="{% url 'reset-password' %}">{% trans "CHANGE PASSWORD" %}</a></li>
+                        {# <li><a href="{% url 'order_history' %}">{% trans "ORDER HISTORY" %}</a></li> #}
+                    {% if user.is_superuser %}
+                        <li><a href="{% url 'email_list' %}">{% trans "GET EMAIL LIST" %}</a></li>
+                    {% endif %}
+                    </ul>
+                </div>
+
+                <h2 style='text-align:center'>{% trans "My Workbooks" %}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="my-account-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="my-books">
+                {% if my_copies %}
+                    {% for copy in my_copies %}
+                        <div class="book-item">
+                            <div class="book-cover">
+                                <a href="{% url 'book-overview' book_slug=copy.book.slug %}">
+                                    <img src="{{ copy.book.cover_image.url }}" alt="{{ copy.book.title }}" />
+                                </a>
+                            </div>
+
+                            <div class="book-info">
+                                <div class="navigation-list">
+                                    {# <a href="{% url 'book-purchase' book_slug=copy.book.slug %}" class="btn btn-primary btn-s" style="margin-top:10px">Purchase a Copy</a> #}
+                                    <ul>
+                                        <li><a href="{% url 'book-overview' book_slug=copy.book.slug %}">{% trans "Overview" %}</a></li>
+                                        <li><a href="{% url 'book-toc' book_slug=copy.book.slug %}">{% trans "Table of Contents" %}</a></li>
+                                    {% if copy.current_item %}
+                                        <li><a href="{% url 'book-resume' book_slug=copy.book.slug %}">{% trans "Resume Workbook" %}</a></li>
+                                    {% endif %}
+                                        <li><a href="{% url 'book-overview' book_slug=copy.book.slug %}#groups">{% trans "Groups" %}</a></li>
+                                        <li><a href="{% url 'book-export' book_slug=copy.book.slug %}">{% trans "Export to PDF" %}</a></li>
+                                        <li><a href="{% url 'book-copy-delete' book_slug=copy.book.slug %}">{% trans "Delete Data" %}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>{# trans "You don't have any books yet." #}</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+            {% if other_books %}
+                <h2>{% trans "Other workbooks we offer" %}</h2>
+
+                <div class="books-to-buy">
+                {% for book in other_books %}
+                    <div class="book-item">
+                        <div class="book-cover">
+                            <a href="{% url 'book-overview' book_slug=book.slug %}">
+                                <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="book-cover" />
+                            </a>
+                        </div>
+
+                        <div class="book-links">
+                        {% if book.status == "active" %}
+                            <a href="{% url 'book-toc' book_slug=book.slug %}" class="start-button" style="width:100px; height:30px;">{% trans "Get Started" %}</a>
+                            <a href="{% url 'book-resume' book_slug=book.slug %}" class="start-button" style="width:100px; height:30px;">{% trans "Preview" %}</a>
+                        {% else %}
+                            <span>{% trans "Coming Soon" %}</span>
+                        {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

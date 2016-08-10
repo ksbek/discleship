@@ -1,0 +1,36 @@
+{% extends "webbook/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="store-purchase-wrapper">
+        <p>
+        {% blocktrans %}
+            Thank you for your purchase. Please, <a href="javascript:window.print();">print this page</a> for your record.
+        {% endblocktrans %}
+        </p>
+
+        <div class="invoice-header">
+            <dl>
+                <dt>{% trans "Invoice" %}</dt>
+                <dd>{{ purchase.invoice_number }}</dd>
+                <dt>{% trans "Date" %}</dt>
+                <dd>{{ purchase.date|date:"F jS, Y" }}</dd>
+                <dt>{% trans "Time" %}</dt>
+                <dd>{{ purchase.date|date:"g:i:s A T" }}</dd>
+            </dl>
+        </div>
+
+        {% include "webbook/store/invoice_table.html" %}
+
+    {% if purchase.gift_code %}
+        <p>
+        {% blocktrans with name=purchase.recipient_name email=purchase.recipient_email %}
+            Gift code was emailed to {{ name }} at {{ email }}.
+        {% endblocktrans %}
+        </p>
+    {% else %}
+        <p><a href="{% url 'dwb_overview' book_slug=purchase.book.slug %}" class="default-button">{% trans "Continue" %}</a></p>
+    {% endif %}
+    </div>
+{% endblock %}

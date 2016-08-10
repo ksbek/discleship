@@ -1,0 +1,40 @@
+[
+  {
+    "model": "auth.User",
+    "pk": 1,
+    "fields": {
+      "first_name": "Tom",
+      "email": "tom@example.com",
+      "username" : "tom"
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 2,
+    "fields": {
+      "first_name": "Jerry",
+      "email": "jerry@example.com",
+      "username" : "jerry"
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 3,
+    "fields": {
+      "first_name": "Mike",
+      "email": "mike@example.com",
+      "username" : "mike"
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 10,
+    "fields": {
+      "first_name": "admin",
+      "email": "admin@example.com",
+      "username" : "admin",
+      "is_staff" : true,
+      "is_superuser": true
+    }
+  }
+]

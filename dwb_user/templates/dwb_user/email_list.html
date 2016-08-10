@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                {% csrf_token %}
+
+                <h3>{% trans "Mailing List" %}</h3>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>{% trans "Email Address" %}</th>
+                    </tr>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

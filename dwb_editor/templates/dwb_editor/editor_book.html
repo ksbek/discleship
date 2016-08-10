@@ -1,0 +1,282 @@
+{% extends "base_editor.html" %}
+
+{% load i18n %}
+{% load wysiwyg %}
+
+{% block content %}
+<div id="editor-book-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>{{ book.title }}</h1>
+
+                <p>{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+    <!-- WYSIWYG Editor -->
+    {% wysiwyg_setup %}
+
+<div id="editor-book-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="editor-section">
+                    <h2>{% trans "Special Pages" %}</h2>
+
+                    <ul class="special-pages">
+                        <li>
+                            <a href="{% url 'editor-congratulations' book_id=book.id %}" target="preview_congratulation">{% trans "Congratulations Page" %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'editor-certificate' book_id=book.id %}" target="preview_certificate">{% trans "Certificate" %}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="editor-section">
+                    <h2>{% trans "Chapters" %}</h2>
+
+                    {% csrf_token %}
+
+                    <ol class="books-headings" data-sort-chapters-url="{% url 'editor-sort-chapters' book_id=book.id %}">
+                    {% for item in headings %}
+                        <li>
+                            <input type="hidden" name="items" value="{{ item.id }}">
+                            {{ item.title }}
+
+                            <ul class="buttons-toolbar">
+                                <li>
+                                    <a href="{% url 'editor-chapter' book_id=book.id item_id=item.id %}">{% trans "Edit" %}</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'editor-preview-chapter' book_id=book.id item_id=item.id %}">{% trans "Preview" %}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endfor %}
+                    </ol>
+
+                    <p>{% trans "If you want to delete a chapter, click 'Edit' and delete each item" %}.</p>
+
+                    <form id="add-main-heading-form" action="{% url 'editor-add-item' book_id=book.id %}" method="post">
+                        {% csrf_token %}
+
+                        <div class="form-inline">
+                            <input type="hidden" name="item_type" value="h1" />
+
+                            <label>{% trans "Add main heading" %}</labe>: <input type="text" name="title" class="form-control" value="" />
+
+                            <button type="submit" class="btn btn-primary" >{% trans "Submit" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-24 col-sm-12 col-md-12">
+                <div class="editor-section">
+                    <h2>{% trans "Workbook Options" %}</h2>
+
+                    <form id="workbook-options-form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group {% if form.language.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.language.label }}{% if form.language.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    {{ form.language }}
+                                    {% if form.language.errors %}<span class="help-block">{% for error in form.language.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    {% if form.language.help_text %}<span class="help-text">{{ form.language.help_text }}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.author.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.author.label }}{% if form.author.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    {{ form.author }}
+                                    {% if form.author.errors %}<span class="help-block">{% for error in form.author.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    {% if form.author.help_text %}<span class="help-text">{{ form.author.help_text }}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.title.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.title.label }}{% if form.title.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    {{ form.title }}
+                                    {% if form.title.errors %}<span class="help-block">{% for error in form.title.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    {% if form.title.help_text %}<span class="help-text">{{ form.title.help_text }}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.slug.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.slug.label }}{% if form.slug.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    {{ form.slug }}
+                                    {% if form.slug.errors %}<span class="help-block">{% for error in form.slug.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    {% if form.slug.help_text %}<span class="help-text">{{ form.slug.help_text }}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.date_available.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.date_available.label }}{% if form.date_available.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    {{ form.date_available }}
+                                    {% if form.date_available.errors %}<span class="help-block">{% for error in form.date_available.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    {% if form.date_available.help_text %}<span class="help-text">{{ form.date_available.help_text }}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.price.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.price.label }}{% if form.price.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    {{ form.price }}
+                                    {% if form.price.errors %}<span class="help-block">{% for error in form.price.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    {% if form.price.help_text %}<span class="help-text">{{ form.price.help_text }}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.status.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.status.label }}{% if form.status.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    {{ form.status }}
+                                    {% if form.status.errors %}<span class="help-block">{% for error in form.status.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    {% if form.status.help_text %}<span class="help-text">{{ form.status.help_text }}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.cover_image.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.cover_image.label }}{% if form.cover_image.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-18 col-sm-18 col-md-18">
+                                    {{ form.cover_image }}
+                                    {% if form.cover_image.errors %}<span class="help-block">{% for error in form.cover_image.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.congratulations_text.errors %}has-error{% endif %}">
+                            <label class="control-label">{{ form.congratulations_text.label }}{% if form.congratulations_text.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                            {{ form.congratulations_text }}
+                            {% if form.congratulations_text.errors %}<span class="help-block">{% for error in form.congratulations_text.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                        </div>
+                        <div class="form-group {% if form.certificate_background.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.certificate_background.label }}{% if form.certificate_background.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-18 col-sm-18 col-md-18">
+                                    {{ form.certificate_background }}
+                                    {% if form.certificate_background.errors %}<span class="help-block">{% for error in form.certificate_background.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.certificate_name_top.errors %}has-error{% endif %}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <label class="control-label">{{ form.certificate_name_top.label }}{% if form.certificate_name_top.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    {{ form.certificate_name_top }}
+                                    {% if form.certificate_name_top.errors %}<span class="help-block">{% for error in form.certificate_name_top.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    {% if form.certificate_name_top.help_text %}<span class="help-text">{{ form.certificate_name_top.help_text }}</span>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.style_css.errors %}has-error{% endif %}">
+                            <label class="control-label">{{ form.style_css.label }}{% if form.style_css.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+                            {{ form.style_css }}
+                            {% if form.style_css.help_text %}<span class="help-text">{{ form.style_css.help_text }}</span>{% endif %}
+                            {% if form.style_css.errors %}<span class="help-block">{% for error in form.style_css.errors %}&nbsp;{{ error }}{% endfor %}</span>{% endif %}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" >{% trans "Submit" %}</button>
+                    </form>
+                </div>
+
+                <div class="editor-section">
+                    <h2>{% trans "Files for Download" %}</h2>
+
+                    <p>{% trans "Files that are attached to this workbook. You can link to them in the content." %}</p>
+
+                    <ul>
+                    {% for file in files_for_download %}
+                        <li>{{ file.title}}
+                            [
+                            <a href="{{ file.url }}">{% trans "download" %}</a> |
+                            <a href="{% url 'editor-edit-file-for-download' book_id=book.id file_id=file.id %}"> {% trans "edit" %}</a> |
+                            <a href="{% url 'editor-delete-file-for-download' book_id=book.id file_id=file.id %}">{% trans "delete" %}</a>
+                            ]
+                        </li>
+                    {% endfor %}
+                        <li><a href="{% url 'editor-add-file-for-download' book_id=book.id %}">{% trans "Add New File" %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% wysiwyg_editor "id_congratulations_text" %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{{ flatpage.title }} - Discipleship Workbooks{% endblock %}
+
+{% block content %}
+<div id="flatpage-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="flatpage-1" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                {{ flatpage.content }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

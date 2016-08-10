@@ -1,0 +1,1817 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-15 00:01-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: dwb_admin/forms.py:25 dwb_group/forms.py:63 dwb_group/forms.py:75
+#: dwb_group/models.py:98
+msgid "Recipient Name"
+msgstr "Nombre del destinatario"
+
+#: dwb_admin/forms.py:31 dwb_group/forms.py:64 dwb_group/forms.py:81
+#: dwb_group/models.py:94
+msgid "Recipient Email"
+msgstr "Correo electrónico del destinatario"
+
+#: dwb_admin/forms.py:66
+msgid "Content"
+msgstr "Contenido"
+
+#: dwb_admin/templates/admin/base_site.html:20
+msgid "Workbook Admin"
+msgstr "Administrador del Manual"
+
+#: dwb_admin/templates/dwb_admin/admin_flatpage.html:11
+#: dwb_editor/templates/dwb_editor/editor_book.html:54
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:39
+#: dwb_editor/templates/dwb_editor/editor_preview_chapter.html:49
+msgid "Edit"
+msgstr "Editar"
+
+#: dwb_admin/templates/dwb_admin/admin_flatpage.html:31
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:66
+msgid "Update"
+msgstr "Actualizar"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:14
+msgid "Create Gift Code"
+msgstr "Crear código de regalo"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:30
+msgid "Books"
+msgstr "Manuales"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:45
+#: templates/fragments/navbar.html:50
+msgid "Editor"
+msgstr "Editor"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:47
+msgid "Purchases"
+msgstr "Compras"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:56
+msgid "Pages"
+msgstr "Páginas"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:74
+msgid "view"
+msgstr "ver"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:74
+#: dwb_editor/templates/dwb_editor/editor_book.html:267
+msgid "edit"
+msgstr "editar"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:84
+msgid "Messages"
+msgstr "Mensajes"
+
+#: dwb_admin/templates/dwb_admin/admin_home.html:94
+msgid "Populate"
+msgstr "Popular"
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:26
+#: dwb_admin/templates/dwb_admin/admin_purchase_list.html:27
+#: dwb_store/templates/dwb_store/complete.html:15
+msgid "Invoice"
+msgstr ""
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:28
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:51
+#: dwb_admin/templates/dwb_admin/admin_purchase_list.html:28
+#: dwb_store/templates/dwb_store/complete.html:17
+msgid "Date"
+msgstr "Fecha"
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:30
+#: dwb_user/templates/dwb_user/order_history.html:15
+msgid "Book"
+msgstr "Manual"
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:32
+#: dwb_admin/templates/dwb_admin/admin_purchase_list.html:29
+#: dwb_store/templates/dwb_store/discounts.html:22
+#: dwb_store/templates/dwb_store/discounts_buy.html:22
+#: dwb_store/templates/dwb_store/discounts_buy.html:50
+#: dwb_store/templates/dwb_store/invoice_table.html:9
+#: dwb_user/templates/dwb_user/order_history.html:18
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:34 dwb_editor/forms.py:48
+#: dwb_store/templates/dwb_store/invoice_table.html:11
+msgid "Price"
+msgstr ""
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:36
+#: dwb_store/templates/dwb_store/invoice_table.html:25
+msgid "Total"
+msgstr ""
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:38
+#: dwb_admin/templates/dwb_admin/admin_purchase_list.html:30
+#: dwb_user/templates/dwb_user/order_history.html:20
+msgid "Gift Code"
+msgstr ""
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:40
+msgid "Buyer"
+msgstr ""
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:42
+#: dwb_book/templates/dwb_book/modals/tell_friend_modal.html:19
+msgid "Recipient"
+msgstr "Destinatario"
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:47
+#: dwb_admin/templates/dwb_admin/admin_purchase_list.html:31
+msgid "Redeemed"
+msgstr ""
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:52
+msgid "User"
+msgstr "Usuario"
+
+#: dwb_admin/templates/dwb_admin/admin_purchase.html:72
+#: dwb_admin/templates/dwb_admin/admin_purchase_add.html:29
+#: dwb_book/templates/dwb_book/book_copy_delete.html:36
+#: dwb_editor/templates/dwb_editor/editor_book.html:74
+#: dwb_editor/templates/dwb_editor/editor_book.html:253
+#: dwb_editor/templates/dwb_editor/editor_item.html:50
+#: dwb_editor/templates/dwb_editor/file_for_download/add.html:16
+#: dwb_editor/templates/dwb_editor/file_for_download/edit.html:14
+#: dwb_store/templates/dwb_store/redeem.html:26
+msgid "Submit"
+msgstr "Enviar"
+
+#: dwb_admin/templates/dwb_admin/admin_purchase_add.html:10
+msgid "Create a gift purchase."
+msgstr ""
+
+#: dwb_admin/templates/dwb_admin/admin_purchase_add.html:22
+msgid ""
+"If you enter recipient's email address, an email will be sent to them with "
+"their gift code."
+msgstr ""
+
+#: dwb_admin/templates/dwb_admin/admin_purchase_list.html:12
+#: dwb_book/templates/dwb_book/book_congratulations.html:11
+#: dwb_book/templates/dwb_book/book_copy_delete.html:12
+#: dwb_book/templates/dwb_book/book_export.html:11
+#: dwb_book/templates/dwb_book/book_overview.html:21
+#: dwb_book/templates/dwb_book/book_page.html:18
+#: dwb_book/templates/dwb_book/book_toc.html:18
+#: dwb_editor/templates/dwb_editor/delete_item.html:12
+#: dwb_editor/templates/dwb_editor/editor_book.html:13
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:12
+#: dwb_editor/templates/dwb_editor/editor_preview_chapter.html:18
+#: dwb_store/templates/dwb_store/discounts_buy.html:9
+#: dwb_store/templates/dwb_store/purchase.html:9
+#, python-format
+msgid "By %(author)s"
+msgstr "Por %(author)s"
+
+#: dwb_book/forms.py:10
+msgid "No, do not delete"
+msgstr "No, no eliminar la información"
+
+#: dwb_book/forms.py:11
+msgid "Yes, delete all data"
+msgstr "Sí, eliminar toda la información"
+
+#: dwb_book/models.py:21
+msgid "Active"
+msgstr "Activo"
+
+#: dwb_book/models.py:22
+msgid "Hidden"
+msgstr "Oculto"
+
+#: dwb_book/models.py:23 dwb_group/models.py:139
+msgid "Draft"
+msgstr "Borrador"
+
+#: dwb_book/models.py:24
+msgid "Deleted"
+msgstr "Eliminado"
+
+#: dwb_book/models.py:38
+msgid "When book became available"
+msgstr "Cuando el manual estuvo disponible"
+
+#: dwb_book/models.py:46
+msgid "Use class 'book-display'"
+msgstr ""
+
+#: dwb_book/models.py:77
+msgid "Position of name from top in %"
+msgstr ""
+
+#: dwb_book/models.py:158
+msgid "Minimum quantity for this pricing"
+msgstr ""
+
+#: dwb_book/models.py:180
+msgid "Heading 1"
+msgstr "Título 1"
+
+#: dwb_book/models.py:181
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:59
+msgid "Heading 2"
+msgstr "Título 2"
+
+#: dwb_book/models.py:182
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:60
+msgid "Heading 3"
+msgstr "Título 3"
+
+#: dwb_book/models.py:183
+msgid "Text"
+msgstr "Texto"
+
+#: dwb_book/models.py:184
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:64
+msgid "Type-in Question"
+msgstr "Introducir pregunta"
+
+#: dwb_book/models.py:185
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:65
+msgid "Yes/No Question"
+msgstr "Pregunta de sí/no"
+
+#: dwb_book/models.py:186
+msgid "Choose One Question"
+msgstr "Elija una pregunta"
+
+#: dwb_book/models.py:383 dwb_editor/templates/dwb_editor/editor_book.html:57
+#: dwb_site/templates/dwb_site/index.html:63
+#: dwb_user/templates/dwb_user/my_account.html:88
+msgid "Preview"
+msgstr "Avance"
+
+#: dwb_book/models.py:384
+msgid "In Progress"
+msgstr "En progreso"
+
+#: dwb_book/models.py:385
+msgid "Completed"
+msgstr "Completado"
+
+#: dwb_book/services.py:148
+msgid "Chapter not found"
+msgstr "Capítulo no encontrado"
+
+#: dwb_book/services.py:227
+msgid "Invalid item for book"
+msgstr "Artículo inválido para el manual"
+
+#: dwb_book/services.py:312
+msgid "Failed to create PDF"
+msgstr "Falló en crear PDF"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:5
+#: dwb_book/templates/dwb_book/book_certificate.html:7
+msgid "CONGRATULATIONS!"
+msgstr "¡FELICIDADES!"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:10
+msgid ""
+"This is to certify that the below mentioned individual has completed all "
+"required materials for this workbook"
+msgstr ""
+"Esto es para certificar que la persona mencionada ha completado todo el "
+"material requerido para este manual"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:11
+#, python-format
+msgid "Certificate Number %(number)s"
+msgstr "Número de Certificado %(number)s"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:11
+#, python-format
+msgid "Date of Completion %(date)s"
+msgstr "Fecha de finalización %(date)s"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:13
+#, python-format
+msgid "You have completed the %(title)s Workbook"
+msgstr "Ha completado el %(title)s"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:14
+msgid ""
+"Our prayer is that you would continue to strengthen your relationship with "
+"Jesus Christ and to fulfill your role as His disciple in your family, your "
+"church and your community. Now, share the knowledge you have gained and "
+"disciple others."
+msgstr ""
+"Nuestra oración es que usted continuará fortaleciendo su relación con "
+"Jesucristo y que cumpla el papel de ser Su discípulo dentro de su familia, "
+"iglesia y comunidad. Ahora, comparta el conocimiento que ha obtenido y "
+"comience a discipular a otros"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:16
+msgid "Matthew 28:19"
+msgstr "Mateo 28:19"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:16
+msgid ""
+"Therefore go and make disciples of all nations, baptizing them in the name "
+"of the Father and of the Son"
+msgstr ""
+"Por tanto, vayan y hagan discípulos en todas las naciones, y bautícenlos en "
+"el nombre del Padre, y del Hijo, y del Espíritu Santo"
+
+#: dwb_book/templates/dwb_book/book_certificate.html:19
+msgid "Founder/Director of"
+msgstr "Fundador/Director de"
+
+#: dwb_book/templates/dwb_book/book_congratulations.html:23
+msgid "Congratulations"
+msgstr "Felicidades"
+
+#: dwb_book/templates/dwb_book/book_congratulations.html:37
+msgid "Export Certificate"
+msgstr "Exportar Certificado"
+
+#: dwb_book/templates/dwb_book/book_congratulations.html:38
+msgid "Print Certificate"
+msgstr "Imprimir Certificado"
+
+#: dwb_book/templates/dwb_book/book_congratulations.html:41
+msgid "What's next?"
+msgstr "¿Y ahora qué sigue?"
+
+#: dwb_book/templates/dwb_book/book_congratulations.html:43
+msgid "We encourage you to"
+msgstr "Lo alentamos a que"
+
+#: dwb_book/templates/dwb_book/book_congratulations.html:43
+msgid "save your workbook"
+msgstr "guarde su manual"
+
+#: dwb_book/templates/dwb_book/book_congratulations.html:43
+msgid ""
+"to a PDF file. This allows you to keep the complete workbook with all your "
+"answers. You can save it on your computer and come back to it in a few years."
+msgstr ""
+"en un archivo PDF. Esto le permite mantener el manual completado con sus "
+"respuestas. Puede guardarlo en su computadora y revisarlo años después."
+
+#: dwb_book/templates/dwb_book/book_copy_delete.html:26
+msgid "Delete Workbook"
+msgstr "Eliminar Manual"
+
+#: dwb_book/templates/dwb_book/book_copy_delete.html:28
+msgid ""
+"You are about to delete all data in your workbook. This includes your "
+"answers to every question. Your progress will be lost. This can NOT be un-"
+"done. Are you sure you want to delete all your data in this workbook?"
+msgstr ""
+"Está a punto de eliminar toda la información de su manual. Esto incluye sus "
+"respuestas a cada una de las preguntas. Su progreso se perderá. Esto NO es "
+"reversible. ¿Está seguro de que quiere eliminar toda la información de su "
+"manual?"
+
+#: dwb_book/templates/dwb_book/book_export.html:25
+msgid "Export Workbook"
+msgstr "Exportar Manual"
+
+#: dwb_book/templates/dwb_book/book_export.html:27
+msgid ""
+"You can download your workbook as a PDF to file it for your records or to "
+"print it  if you'd like."
+msgstr ""
+"Puede descargar su manual de trabajo como un archivo PDF para guardarlo en "
+"su computadora o para imprimirlo."
+
+#: dwb_book/templates/dwb_book/book_export.html:28
+msgid ""
+"It might take up to a minute to create your PDF file. Please be patient."
+msgstr ""
+"Puede llevar hasta un minuto crear su archivo PDF. Por favor sea paciente."
+
+#: dwb_book/templates/dwb_book/book_export.html:36
+msgid "Select chapter to export"
+msgstr "Seleccione el capítulo para exportarlo"
+
+#: dwb_book/templates/dwb_book/book_export.html:39
+msgid "All completed chapters"
+msgstr "Todos los archivos completados"
+
+#: dwb_book/templates/dwb_book/book_export.html:45
+msgid "Export"
+msgstr "Exportar"
+
+#: dwb_book/templates/dwb_book/book_overview.html:25
+#: dwb_book/templates/dwb_book/book_page.html:41
+#: dwb_book/templates/dwb_book/book_page.html:63
+#: dwb_book/templates/dwb_book/book_toc.html:31
+#: dwb_book/templates/dwb_book/inner_navigation.html:6
+#: dwb_user/templates/dwb_user/my_account.html:52
+msgid "Table of Contents"
+msgstr "Tabla de Contenido"
+
+#: dwb_book/templates/dwb_book/book_overview.html:26
+#: dwb_user/templates/dwb_user/my_account.html:54
+msgid "Resume Workbook"
+msgstr "Resumir Manual"
+
+#: dwb_book/templates/dwb_book/book_overview.html:27
+#: dwb_book/templates/dwb_book/inner_navigation.html:7
+#: dwb_user/templates/dwb_user/my_account.html:57
+msgid "Export to PDF"
+msgstr "Exportar a PDF"
+
+#: dwb_book/templates/dwb_book/book_overview.html:28
+#: dwb_book/templates/dwb_book/inner_navigation.html:8
+#: dwb_user/templates/dwb_user/my_account.html:58
+msgid "Delete Data"
+msgstr "Eliminar Información"
+
+#: dwb_book/templates/dwb_book/book_overview.html:32
+msgid "My Workbook Progress"
+msgstr "El progreso de mi Manual"
+
+#: dwb_book/templates/dwb_book/book_overview.html:42
+msgid ""
+"\n"
+"                    If you find this workbook valuable, you can <a class="
+"\"tell-friend\" href=\"javascript:\">tell</a> a friend or a family member.\n"
+"                "
+msgstr ""
+"\n"
+"                    Si valora este manual puede mencionárselo <a class="
+"\"tell-friend\" href=\"javascript:\">a algún</a> amigo o familiar.\n"
+"                "
+
+#: dwb_book/templates/dwb_book/book_overview.html:57
+msgid "My Groups"
+msgstr "Mis Grupos"
+
+#: dwb_book/templates/dwb_book/book_overview.html:60
+msgid ""
+"When you belong to a group, you can see progress of other people in that "
+"group, and they can see yours."
+msgstr ""
+"Cuando pertenece a un grupo, usted puede ver el progreso de los miembros del "
+"grupo, y ellos pueden ver el suyo."
+
+#: dwb_book/templates/dwb_book/book_overview.html:60
+msgid "Create a new group"
+msgstr "Crear un grupo nuevo"
+
+#: dwb_book/templates/dwb_book/book_overview.html:60
+msgid "for your friends."
+msgstr "para sus amigos."
+
+#: dwb_book/templates/dwb_book/book_overview.html:64
+msgid "New Group"
+msgstr "Grupo Nuevo"
+
+#: dwb_book/templates/dwb_book/book_overview.html:77
+msgid "Invite a friend"
+msgstr "Invite a un amigo"
+
+#: dwb_book/templates/dwb_book/book_overview.html:79
+msgid "Send a message"
+msgstr "Enviar un mensaje"
+
+#: dwb_book/templates/dwb_book/book_overview.html:81
+msgid "Rename this group"
+msgstr "Renombre este grupo"
+
+#: dwb_book/templates/dwb_book/book_overview.html:82
+msgid "Leave this group"
+msgstr "Salirse de este grupo"
+
+#: dwb_book/templates/dwb_book/book_overview.html:89
+msgid "My Progress"
+msgstr "Mi Progreso"
+
+#: dwb_book/templates/dwb_book/book_overview.html:102
+#: dwb_book/templates/dwb_book/modals/send_group_message_modal.html:9
+#: dwb_book/templates/dwb_book/modals/tell_friend_modal.html:9
+msgid "Send Message"
+msgstr "Enviar mensaje"
+
+#: dwb_book/templates/dwb_book/book_overview.html:103
+#: dwb_book/templates/dwb_book/book_overview.html:118
+msgid "Remove"
+msgstr "Remover"
+
+#: dwb_book/templates/dwb_book/book_overview.html:117
+msgid "Not registered"
+msgstr "No está registrado"
+
+#: dwb_book/templates/dwb_book/book_overview.html:236
+msgid "Sending..."
+msgstr "Enviando..."
+
+#: dwb_book/templates/dwb_book/book_page.html:39
+#: dwb_book/templates/dwb_book/book_page.html:40
+#: dwb_book/templates/dwb_book/book_page.html:61
+#: dwb_book/templates/dwb_book/book_page.html:62
+#: dwb_user/templates/dwb_user/edit_profile.html:19
+msgid "Save"
+msgstr "Guardar"
+
+#: dwb_book/templates/dwb_book/book_page.html:39
+#: dwb_book/templates/dwb_book/book_page.html:43
+#: dwb_book/templates/dwb_book/book_page.html:61
+#: dwb_book/templates/dwb_book/book_page.html:65
+#: dwb_book/templates/dwb_book/book_sponsor.html:21
+#: dwb_store/templates/dwb_store/complete.html:33
+#: dwb_store/templates/dwb_store/discounts_buy.html:70
+msgid "Continue"
+msgstr "Continuar"
+
+#: dwb_book/templates/dwb_book/book_page.html:55
+msgid "You are not logged in so your progress will not be saved."
+msgstr "No ha iniciado sesión por lo tanto su progreso no se guardará."
+
+#: dwb_book/templates/dwb_book/book_page.html:55
+msgid "Log in"
+msgstr "Inicie sesión"
+
+#: dwb_book/templates/dwb_book/book_page.html:55
+msgid "or"
+msgstr "o"
+
+#: dwb_book/templates/dwb_book/book_page.html:55
+msgid "register"
+msgstr "registrese"
+
+#: dwb_book/templates/dwb_book/book_page.html:55
+msgid "for free."
+msgstr "gratis."
+
+#: dwb_book/templates/dwb_book/book_page_item.html:26
+#: dwb_book/templates/dwb_book/book_page_item.html:28
+#: dwb_book/templates/dwb_book/book_page_item.html:30
+msgid "enter your response"
+msgstr "escriba su respuesta"
+
+#: dwb_book/templates/dwb_book/book_sponsor.html:7
+msgid "Sponsor a Friend"
+msgstr "Patrocine a un amigo"
+
+#: dwb_book/templates/dwb_book/book_sponsor.html:10
+#, python-format
+msgid ""
+"\n"
+"            Sponsor a friend so they can work on %(title)s with your group "
+"\"%(name)s\".\n"
+"        "
+msgstr ""
+"\n"
+"            Patrocine a un amigo para que pueda trabajar en %(title)s con su "
+"grupo \"%(name)s\".\n"
+"        "
+
+#: dwb_book/templates/dwb_book/book_toc.html:34
+msgid "Complete current chapter to get access to the next one."
+msgstr "Complete el capítulo actual para poder accesar el siguiente."
+
+#: dwb_book/templates/dwb_book/book_toc.html:44
+msgid "Appendix"
+msgstr "Ápendice"
+
+#: dwb_book/templates/dwb_book/export/item.html:28
+msgid "no response"
+msgstr "sin respuesta"
+
+#: dwb_book/templates/dwb_book/inner_navigation.html:5
+#: dwb_user/templates/dwb_user/my_account.html:51
+msgid "Overview"
+msgstr "Resumen"
+
+#: dwb_book/templates/dwb_book/modals/send_group_message_modal.html:18
+msgid "To"
+msgstr "Para"
+
+#: dwb_book/templates/dwb_book/modals/send_group_message_modal.html:19
+#: dwb_book/templates/dwb_book/modals/tell_friend_modal.html:25
+#: dwb_user/templates/dwb_user/order_history.html:61
+msgid "Enter your message here"
+msgstr "Ingrese su mensaje aquí"
+
+#: dwb_book/templates/dwb_book/modals/send_group_message_modal.html:26
+#: dwb_book/templates/dwb_book/modals/tell_friend_modal.html:35
+#: dwb_user/templates/dwb_user/order_history.html:66
+msgid "Close"
+msgstr "Cerrar"
+
+#: dwb_book/templates/dwb_book/modals/send_group_message_modal.html:27
+#: dwb_book/templates/dwb_book/modals/tell_friend_modal.html:36
+#: dwb_group/templates/dwb_group/group_invite.html:25
+#: dwb_user/templates/dwb_user/order_history.html:67
+msgid "Send"
+msgstr "Enviar"
+
+#: dwb_book/templates/dwb_book/modals/tell_friend_modal.html:20
+msgid "Recipient email here"
+msgstr "Ingrese el correo electronico del destinatario aquí"
+
+#: dwb_book/templates/dwb_book/modals/tell_friend_modal.html:24
+#: dwb_group/forms.py:102
+msgid "Message"
+msgstr "Mensaje"
+
+#: dwb_book/views.py:367
+msgid "All data was deleted from your workbook."
+msgstr "Toda la información será eliminada de su manual."
+
+#: dwb_book/views.py:406
+msgid "You don't have permission to export this chapter."
+msgstr "No tiene permiso para exportar este capítulo."
+
+#: dwb_book/views.py:541
+msgid "This book is not available for purchase at this time."
+msgstr ""
+
+#: dwb_editor/forms.py:30
+msgid "Author"
+msgstr ""
+
+#: dwb_editor/forms.py:36 dwb_editor/forms.py:96
+#: dwb_editor/templates/dwb_editor/editor_home.html:25
+msgid "Title"
+msgstr "Título"
+
+#: dwb_editor/forms.py:42
+msgid "Slug"
+msgstr ""
+
+#: dwb_editor/forms.py:58
+msgid "Congratulations Text"
+msgstr ""
+
+#: dwb_editor/forms.py:64
+msgid "Style CSS"
+msgstr ""
+
+#: dwb_editor/forms.py:92
+msgid "Text above title"
+msgstr "Texto arriba del título."
+
+#: dwb_editor/forms.py:93
+msgid "Short text above the heading."
+msgstr "Texto corto arriba del título."
+
+#: dwb_editor/forms.py:99
+msgid "Text bellow title"
+msgstr "Texto debajo del título."
+
+#: dwb_editor/forms.py:101
+msgid "Short text shown right under the heading."
+msgstr "Texto corto mostrado debajo del título."
+
+#: dwb_editor/forms.py:104 dwb_editor/forms.py:125 dwb_editor/forms.py:154
+#: dwb_editor/forms.py:183 dwb_editor/forms.py:216
+msgid "Footnotes"
+msgstr "Notas al pie"
+
+#: dwb_editor/forms.py:151 dwb_editor/forms.py:180 dwb_editor/forms.py:209
+msgid "Question"
+msgstr "Pregunta"
+
+#: dwb_editor/forms.py:212
+msgid "Options"
+msgstr "Opciones"
+
+#: dwb_editor/forms.py:214
+msgid "Enter one per line"
+msgstr "Incluya una por línea"
+
+#: dwb_editor/services.py:76
+msgid "Sorting of chapters failed."
+msgstr "Clasificación de los capítulos fallidos."
+
+#: dwb_editor/templates/dwb_editor/delete_item.html:16
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:16
+#: dwb_editor/templates/dwb_editor/editor_item.html:17
+#: dwb_editor/templates/dwb_editor/editor_preview_chapter.html:22
+msgid "Book Overview"
+msgstr "Resumen del Manual"
+
+#: dwb_editor/templates/dwb_editor/delete_item.html:17
+#: dwb_editor/templates/dwb_editor/editor_item.html:18
+#: dwb_editor/templates/dwb_editor/editor_preview_chapter.html:23
+msgid "Chapter Overview"
+msgstr "Resumen del capítulo"
+
+#: dwb_editor/templates/dwb_editor/delete_item.html:34
+msgid "Are you sure you want to delete the following item?"
+msgstr "Está seguro de querer eliminar la siguiente sección?"
+
+#: dwb_editor/templates/dwb_editor/delete_item.html:39
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:43
+#: dwb_editor/templates/dwb_editor/file_for_download/delete.html:14
+msgid "Delete"
+msgstr "Eliminar"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:29
+msgid "Special Pages"
+msgstr "Páginas especiales"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:33
+msgid "Congratulations Page"
+msgstr "Página de felicitación"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:36
+msgid "Certificate"
+msgstr "Certificado"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:42
+msgid "Chapters"
+msgstr "Capítulos"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:64
+msgid "If you want to delete a chapter, click 'Edit' and delete each item"
+msgstr ""
+"Si quiere eliminar un capítulo, haga clic en «Editar» y elimine cada sección"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:72
+msgid "Add main heading"
+msgstr ""
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:84
+msgid "Workbook Options"
+msgstr "Opciones del manual"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:258
+msgid "Files for Download"
+msgstr "Archivos para descargar"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:260
+msgid ""
+"Files that are attached to this workbook. You can link to them in the "
+"content."
+msgstr ""
+"Los archivos que están adjuntados a este manual. Puede vincularlos en el "
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:266
+msgid "download"
+msgstr "descargar"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:268
+msgid "delete"
+msgstr "eliminar"
+
+#: dwb_editor/templates/dwb_editor/editor_book.html:272
+msgid "Add New File"
+msgstr "Añadir archivo nuevo"
+
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:17
+msgid "Preview Chapter"
+msgstr "Vista previa del capítulo"
+
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:58
+msgid "Add Text"
+msgstr "Añadir texto"
+
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:61
+msgid "Formatted Text"
+msgstr "Texto formateado"
+
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:63
+msgid "Add Question"
+msgstr "Añadir pregunta"
+
+#: dwb_editor/templates/dwb_editor/editor_chapter.html:66
+msgid "Multiple Choice Question"
+msgstr "Pregunta con opción de respuestas múltiples"
+
+#: dwb_editor/templates/dwb_editor/editor_home.html:24
+msgid "Cover"
+msgstr "Portada"
+
+#: dwb_editor/templates/dwb_editor/editor_home.html:26
+msgid "Status"
+msgstr "Estado"
+
+#: dwb_editor/templates/dwb_editor/editor_home.html:36
+msgid "Open"
+msgstr "Abrir"
+
+#: dwb_editor/templates/dwb_editor/editor_item.html:36
+msgid "Editing"
+msgstr "Editar"
+
+#: dwb_editor/templates/dwb_editor/file_for_download/add.html:7
+msgid "Add file for download"
+msgstr "Añada archivo para ser descargado"
+
+#: dwb_editor/templates/dwb_editor/file_for_download/add.html:9
+msgid "Upload a file to"
+msgstr "Añadir un archivo a"
+
+#: dwb_editor/templates/dwb_editor/file_for_download/delete.html:7
+msgid "Delete file for download"
+msgstr "Eliminar archivo para descargarlo"
+
+#: dwb_editor/templates/dwb_editor/file_for_download/delete.html:9
+msgid "Do you want to delete"
+msgstr "¿Quiere eliminar"
+
+#: dwb_editor/templates/dwb_editor/file_for_download/edit.html:7
+msgid "Update file for download"
+msgstr "Actualizar archivo para descargar"
+
+#: dwb_editor/views.py:218
+msgid "Cannot delete heading which has sub-content"
+msgstr "No se puede eliminar título con subcontenido"
+
+#: dwb_group/forms.py:21 dwb_group/models.py:42 dwb_store/forms.py:10
+#: dwb_user/forms.py:236
+msgid "Name"
+msgstr "Nombre"
+
+#: dwb_group/forms.py:32
+msgid "Group Name"
+msgstr "Nombre del grupo"
+
+#: dwb_group/forms.py:106
+msgid "Enter your Message here..."
+msgstr "Escriba su mensaje aquí..."
+
+#: dwb_group/models.py:73 dwb_store/models.py:29
+msgid "Pending"
+msgstr "Pendiente"
+
+#: dwb_group/models.py:74
+msgid "Accepted"
+msgstr "Aceptado"
+
+#: dwb_group/models.py:112
+msgid "This invitation cannot be used."
+msgstr "Esta invitación no puede ser usada"
+
+#: dwb_group/models.py:122
+msgid "Cannot generate another code for this invite"
+msgstr "No se puede generar otro código para esta invitación"
+
+#: dwb_group/models.py:140
+msgid "Sent"
+msgstr "Enviado"
+
+#: dwb_group/models.py:141 dwb_store/models.py:32
+msgid "Failed"
+msgstr "Ha fallado"
+
+#: dwb_group/models.py:165
+msgid "Cannot send the same message twice."
+msgstr "No se puede enviar el mismo mensaje dos veces."
+
+#: dwb_group/models.py:170
+msgid "Message from "
+msgstr "Mensaje de "
+
+#: dwb_group/templates/dwb_group/email/invite_to_group.txt:3
+#, python-format
+msgid ""
+"\n"
+"\n"
+"Hello %(recipient)s,\n"
+"\n"
+"%(sender)s invites you to join \"%(group)s\" to work on \"%(book)s\".\n"
+"\n"
+"%(message)s\n"
+"\n"
+"Click the link bellow to see more information and to join the group.\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Sent by Discipleship Workbooks Team\n"
+"team@discipleshipworkbooks.com\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+"Hola %(recipient)s,\n"
+"\n"
+"%(sender)s te ha invitado a unirte a \"%(group)s\" para trabajar en el "
+"\"%(book)s\".\n"
+"\n"
+"%(message)s\n"
+"\n"
+"Para más información y para unirte al grupo haz clic en el siguiente "
+"enlace.\n"
+"\n"
+"%(url)s\n"
+"\n"
+"Mensaje enviado por el equipo de Manuales de Discipulado\n"
+"team@discipleshipworkbooks.com\n"
+"\n"
+
+#: dwb_group/templates/dwb_group/email/tell_a_friend.txt:3
+msgid ""
+"\n"
+"\n"
+"Hello,\n"
+"\n"
+"%(sender)s (%(email)s) sent you a message:\n"
+"\n"
+"%(text_1)s\n"
+"\n"
+"Click the link bellow to see more information:\n"
+"\n"
+"%(book_url_1)s\n"
+"\n"
+"Sent by Discipleship Workbooks Team\n"
+"team@discipleshipworkbooks.com\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+"Hola,\n"
+"\n"
+"%(sender)s (%(email)s) te envié un mensaje:\n"
+"\n"
+"%(text_1)s\n"
+"\n"
+"Haga clic en el enlace de abajo para ver más información:\n"
+"\n"
+"%(book_url_1)s\n"
+"\n"
+"Mensaje enviado por el equipo de Manuales de Discipulado\n"
+"team@discipleshipworkbooks.com\n"
+"\n"
+
+#: dwb_group/templates/dwb_group/group_create.html:10
+msgid "Create Group"
+msgstr "Crear grupo"
+
+#: dwb_group/templates/dwb_group/group_create.html:12
+msgid ""
+"Create a group and invite your friends. You will be able to see each other's "
+"progress. Your answers will never be shown."
+msgstr ""
+"Cree un grupo e invite a sus amigos. Podrá ver el progreso de los otros "
+"miembros del grupo. Sus respuestas jamás serán reveladas."
+
+#: dwb_group/templates/dwb_group/group_create.html:19
+msgid "Create"
+msgstr "Crear"
+
+#: dwb_group/templates/dwb_group/group_invite.html:10
+msgid "Send Invitation"
+msgstr "Enviar invitación"
+
+#: dwb_group/templates/dwb_group/group_invite.html:13
+#, python-format
+msgid ""
+"\n"
+"                    Invite a friend to join \"%(name)s\". Everyone in this "
+"group can see each other's progress.\n"
+"                "
+msgstr ""
+"\n"
+"                    Invite a un amigo a que se una a \"%(name)s\". Todos en "
+"este grupo podrán ver el progreso de los otros miembros del grupo.\n"
+"                "
+
+#: dwb_group/templates/dwb_group/group_join.html:10
+msgid "Invitation"
+msgstr "Invitación"
+
+#: dwb_group/templates/dwb_group/group_join.html:13
+#, python-format
+msgid ""
+"\n"
+"                    You've been invited to join \"%(name)s\". This group is "
+"working on %(title)s. Anyone in this group can see your progress, and you "
+"can see their progress. However, your responses will never be shared.\n"
+"                "
+msgstr ""
+"\n"
+"                    Ha sido invitado a unirse a \"%(name)s\". Este grupo "
+"está trabajando en %(title)s. Cualquier persona dentro de este grupo puede "
+"ver su progreso, y usted puede ver el progreso de los otros miembros del "
+"grupo. Pero, sus respuestas nunca serán compartidas.\n"
+"                "
+
+#: dwb_group/templates/dwb_group/group_join.html:21
+msgid "Join"
+msgstr "Unirse"
+
+#: dwb_group/templates/dwb_group/group_leave.html:13
+#, python-format
+msgid ""
+"\n"
+"                    Are you sure you want to leave \"%(name)s\". You will "
+"not be able to join again unless you get a new invite.\n"
+"                "
+msgstr ""
+"\n"
+"                    ¿Está seguro de querer salirse de \"%(name)s\"? No le "
+"será posible volver a acceder el grupo al menos que se le envíe una nueva "
+"invitación.\n"
+"                "
+
+#: dwb_group/templates/dwb_group/group_leave.html:21
+msgid "Yes, leave this group"
+msgstr "Si, salirme del grupo"
+
+#: dwb_group/templates/dwb_group/group_rename.html:10
+msgid "Rename Group"
+msgstr "Renombrar el grupo"
+
+#: dwb_group/templates/dwb_group/group_rename.html:17
+msgid "Rename"
+msgstr "Renombrar"
+
+#: dwb_group/views.py:58
+msgid "Your group was created."
+msgstr "Su grupo fue creado"
+
+#: dwb_group/views.py:89
+msgid "Your group was renamed."
+msgstr "Su grupo fue renombrado"
+
+#: dwb_group/views.py:114
+msgid "You need to log in or register before you can join a group."
+msgstr ""
+"Necesita iniciar sesión o registrarse antes de que pueda unirse a un grupo."
+
+#: dwb_group/views.py:124
+msgid "Invitation to group was already used."
+msgstr "La invitación para el grupo ya fue usada."
+
+#: dwb_group/views.py:128
+msgid "Invitation to group is no longer active."
+msgstr "La invitación para este grupo ya no se encuentra activa."
+
+#: dwb_group/views.py:168
+msgid "You do not belong to this group."
+msgstr "Usted no forma parte de este grupo."
+
+#: dwb_group/views.py:199 dwb_group/views.py:263
+msgid "Invite to a group on Discipleship Workbooks"
+msgstr "Invitación para unirse a un grupo en Manuales de Discipulado"
+
+#: dwb_group/views.py:211
+msgid "Invitation was sent."
+msgstr "La invitación fue enviada."
+
+#: dwb_group/views.py:242
+msgid "You left the group."
+msgstr "Usted se ha salido del grupo."
+
+#: dwb_group/views.py:281 dwb_group/views.py:369 dwb_group/views.py:415
+msgid "Message was sent."
+msgstr "El mensaje fue enviado."
+
+#: dwb_group/views.py:286 dwb_group/views.py:311
+msgid "Recipient was not provided."
+msgstr "No se proporcionó destinatario."
+
+#: dwb_group/views.py:292 dwb_group/views.py:317 dwb_group/views.py:375
+#: dwb_group/views.py:427
+msgid "Invalid request."
+msgstr "Requerimiento invalido."
+
+#: dwb_group/views.py:338
+msgid "You cannot message this group."
+msgstr "No puede enviar mensaje a este grupo."
+
+#: dwb_group/views.py:346
+msgid "Only person who created this group can message everyone."
+msgstr "Solo la persona que creó el grupo puede enviar un mensaje grupal."
+
+#: dwb_group/views.py:355 dwb_group/views.py:401
+msgid "We cannot send an empty message."
+msgstr "No puede enviar un mensaje sin contenido."
+
+#: dwb_group/views.py:393 dwb_group/views.py:421
+msgid "You cannot message this user."
+msgstr "No puede enviarle mensaje a este usuario."
+
+#: dwb_site/templates/dwb_site/index.html:11
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: dwb_site/templates/dwb_site/index.html:13
+msgid ""
+"Welcome to Discipleship Workbooks. The materials you will find here were "
+"tested by many others and found to bring success in three essentially "
+"important areas: establishing a daily, abiding relationship with Jesus while "
+"learning important foundational truths about the Christian faith; learning "
+"how to tend to your spouse as a husband and wife and building a strong, "
+"biblically based marriage; and how to raise children with love and proper "
+"discipline according to God's Word."
+msgstr ""
+"Bienvenido a Manuales de Discipulado. Los materiales que encontrará aquí han "
+"sido probados por muchas otras personas y se ha comprobado que proveen éxito "
+"en tres áreas esencialmente importantes: el establecimiento de una diaria y "
+"dependiente relación con Jesús mientras se aprenden las verdades "
+"fundamentales acerca de la fe cristiana; como esposo y esposa aprenderá a "
+"atender a su cónyuge y a desarrollar un fuerte matrimonio basado en las "
+"verdades bíblicas; así también aprendera a como criar a sus hijos con amor y "
+"una disciplina apropiada de acuerdo a la Palabra de Dios."
+
+#: dwb_site/templates/dwb_site/index.html:16
+msgid ""
+"It is our prayer that as you learn and begin to work on these principles, "
+"you will share them with others. God’s commission to every believer is to be "
+"His disciples. With this call and commission upon our life, God will be "
+"faithful and provide us with His grace to see it through."
+msgstr ""
+"Es nuestra oración que usted aprenderá y comenzará a trabajar en estos "
+"principios. El mandamiento de Dios para los creyentes es el de ser Sus "
+"discípulos. Con este llamado y comisión sobre su vida, Dios será fiel y nos "
+"proveerá de Su gracia para prevalecer."
+
+#: dwb_site/templates/dwb_site/index.html:25
+msgid "Welcome Video"
+msgstr "Video de Bienvenida"
+
+#: dwb_site/templates/dwb_site/index.html:32
+msgid "Tutorial Video"
+msgstr "Video Tutorial"
+
+#: dwb_site/templates/dwb_site/index.html:40
+msgid "Download Instructions Here"
+msgstr "Descargue las instrucciones aquí"
+
+#: dwb_site/templates/dwb_site/index.html:62
+#: dwb_store/templates/dwb_store/discounts.html:36
+#: dwb_user/templates/dwb_user/my_account.html:87
+msgid "Get Started"
+msgstr "Comience"
+
+#: dwb_site/templates/dwb_site/index.html:65
+#: dwb_user/templates/dwb_user/my_account.html:90
+msgid "Coming Soon"
+msgstr "Próximamente"
+
+#: dwb_store/forms.py:13 dwb_user/forms.py:160 dwb_user/forms.py:239
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: dwb_store/models.py:30
+msgid "Payed"
+msgstr "Pagado"
+
+#: dwb_store/models.py:31
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: dwb_store/models.py:51
+msgid "Group to join."
+msgstr "Grupo al cual unirse."
+
+#: dwb_store/models.py:124
+msgid "Cannot generate another code for this purchase"
+msgstr "El correo electrónico del recipiente está perdido"
+
+#: dwb_store/service.py:66
+msgid "Gift code is missing."
+msgstr ""
+
+#: dwb_store/service.py:70
+msgid "Recipient's email address is missing"
+msgstr ""
+
+#: dwb_store/service.py:73
+msgid "Gift code to "
+msgstr ""
+
+#: dwb_store/service.py:98
+msgid "Buyer's email address is not available."
+msgstr ""
+
+#: dwb_store/service.py:100
+msgid "Invoice for "
+msgstr ""
+
+#: dwb_store/service.py:195
+msgid "Total charge does not match."
+msgstr ""
+
+#: dwb_store/templates/dwb_store/complete.html:8
+msgid ""
+"\n"
+"            Thank you for your purchase. Please, <a href=\"javascript:window."
+"print();\">print this page</a> for your record.\n"
+"        "
+msgstr ""
+
+#: dwb_store/templates/dwb_store/complete.html:19
+msgid "Time"
+msgstr "Tiempo"
+
+#: dwb_store/templates/dwb_store/complete.html:28
+#, python-format
+msgid ""
+"\n"
+"            Gift code was emailed to %(name)s at %(email)s.\n"
+"        "
+msgstr ""
+
+#: dwb_store/templates/dwb_store/confirm.html:7
+msgid "Confirm your purchase below."
+msgstr ""
+
+#: dwb_store/templates/dwb_store/confirm.html:14
+msgid ""
+"You are buying this book as a gift. We will email a gift code right after "
+"purchase.<br>Who do you want to send this gift code to?"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/confirm.html:17
+msgid "Pay Now"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/confirm.html:20
+msgid "Changed your mind?"
+msgstr "¿Cambió de parecer?"
+
+#: dwb_store/templates/dwb_store/confirm.html:20
+msgid "Cancel purchase."
+msgstr ""
+
+#: dwb_store/templates/dwb_store/discounts.html:8
+msgid "Discounts for Discipleship Workbook"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/discounts.html:10
+msgid ""
+"We offer quantity discounts to pastors and group leaders. This make it "
+"easier and more affordible for an entire group to use Discipleship Workbooks."
+msgstr ""
+
+#: dwb_store/templates/dwb_store/discounts.html:11
+msgid ""
+"Once you complete a purchase, you will be emailed a gift code. This singe "
+"gift code can be used mutliple times, as many times as was purchased. You "
+"can print this gift code, email it, or share it in person with your group."
+msgstr ""
+
+#: dwb_store/templates/dwb_store/discounts.html:23
+#: dwb_store/templates/dwb_store/discounts_buy.html:23
+msgid "Price per Unit"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/discounts.html:29
+#: dwb_store/templates/dwb_store/discounts_buy.html:29
+msgid "or more"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/discounts_buy.html:12
+msgid "Important:"
+msgstr "Importante:"
+
+#: dwb_store/templates/dwb_store/discounts_buy.html:13
+msgid ""
+"\n"
+"            All purchases are final. We do not provide refunds for gift-"
+"codes that were not fully used. Please read our <a href=\"\">terms of "
+"service</a> before making a purchase.\n"
+"        "
+msgstr ""
+
+#: dwb_store/templates/dwb_store/discounts_buy.html:34
+msgid "Price for Pastors/Leaders"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/discounts_buy.html:55
+msgid "Invite to a group"
+msgstr "Invitar a un grupo"
+
+#: dwb_store/templates/dwb_store/discounts_buy.html:58
+msgid "none"
+msgstr "ninguno"
+
+#: dwb_store/templates/dwb_store/discounts_buy.html:59
+msgid "Create new group"
+msgstr "Crear un grupo nuevo"
+
+#: dwb_store/templates/dwb_store/discounts_buy.html:67
+msgid "Everyone in a group can see each other's progress but not answers."
+msgstr ""
+"Todos los miembros de un grupo pueden ver su progreso pero no sus respuestas."
+
+#: dwb_store/templates/dwb_store/discounts_buy.html:74
+#: dwb_store/templates/dwb_store/purchase.html:39
+msgid "This book is not for sale at this time. Please check back later."
+msgstr ""
+
+#: dwb_store/templates/dwb_store/invoice_table.html:7
+msgid "Product Name"
+msgstr "Nombre del producto"
+
+#: dwb_store/templates/dwb_store/purchase.html:14
+#, python-format
+msgid ""
+"\n"
+"            Thank you for your interest in \"%(title)s\" by %(author)s. "
+"Please read our <a href=\"/terms-of-service/\">terms of service</a> before "
+"purchasing this workbook.\n"
+"        "
+msgstr ""
+
+#: dwb_store/templates/dwb_store/purchase.html:19
+msgid "If you are a pastor, group leader or to see available bulk discounts,"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/purchase.html:19
+msgid "click here"
+msgstr "Haga clic aquí"
+
+#: dwb_store/templates/dwb_store/purchase.html:21
+msgid ""
+"You can purchase access to this workbook for yourself or for a friend. Which "
+"one would you like?"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/purchase.html:31
+msgid "Buy for myself"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/purchase.html:32
+msgid "Buy as a gift"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/purchase.html:33
+msgid "Order Bulk"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/purchase.html:34
+msgid "Redeem a gift code"
+msgstr ""
+
+#: dwb_store/templates/dwb_store/redeem.html:9
+#, python-format
+msgid ""
+"\n"
+"            Do you want to redeem gift code (%(gift_code)s) for <b>"
+"%(title)s</b> by %(author)s?\n"
+"        "
+msgstr ""
+
+#: dwb_store/templates/dwb_store/redeem.html:17
+msgid "Redeem"
+msgstr "Redimir"
+
+#: dwb_store/templates/dwb_store/redeem.html:20
+msgid ""
+"If you received a gift code, please enter it below to get access to your "
+"workbook."
+msgstr ""
+
+#: dwb_store/templates/dwb_store/redeem.html:24
+msgid "Gift Code:"
+msgstr ""
+
+#: dwb_store/views.py:54
+msgid "You need to log in or register to continue."
+msgstr "Para continuar necesita iniciar sesión o registrarse."
+
+#: dwb_store/views.py:146
+msgid "You need to log in or register to purchase a workbook."
+msgstr ""
+
+#: dwb_store/views.py:157
+msgid "You already have a copy of this book."
+msgstr "Usted ya posee una copia de este manual."
+
+#: dwb_store/views.py:210
+msgid "Invalid status of a purchase."
+msgstr ""
+
+#: dwb_store/views.py:214
+msgid "Permission denied."
+msgstr "Permiso negado."
+
+#: dwb_store/views.py:265
+msgid "Purchase was cancelled. You already have a copy of this book."
+msgstr ""
+
+#: dwb_store/views.py:347
+msgid "Your purchase was canceled."
+msgstr ""
+
+#: dwb_store/views.py:357
+msgid "You need to log in to redeem your gift code."
+msgstr ""
+
+#: dwb_store/views.py:376
+msgid "Submitted gift code was not found"
+msgstr ""
+
+#: dwb_store/views.py:390 dwb_store/views.py:433
+msgid "Your gift code has been redeemed."
+msgstr ""
+
+#: dwb_store/views.py:394
+msgid "You own a copy of this book."
+msgstr "Ya posee una copia de este manual."
+
+#: dwb_store/views.py:412
+msgid "Submitted gift code was used maximum number of times."
+msgstr ""
+
+#: dwb_store/views.py:416
+msgid "Submitted gift code was already used."
+msgstr ""
+
+#: dwb_user/forms.py:15 dwb_user/forms.py:19 dwb_user/forms.py:71
+#: dwb_user/forms.py:75 dwb_user/templates/dwb_user/email_list.html:16
+msgid "Email Address"
+msgstr "Correo electrónico"
+
+#: dwb_user/forms.py:23 dwb_user/forms.py:29 dwb_user/forms.py:79
+#: dwb_user/forms.py:85 dwb_user/forms.py:250 dwb_user/forms.py:256
+msgid "Password"
+msgstr "Contraseña"
+
+#: dwb_user/forms.py:33
+msgid "Keep me logged in"
+msgstr "Mantener mi sesión abierta"
+
+#: dwb_user/forms.py:52
+msgid "Incorrect email address or password."
+msgstr "Correo electrónico o contraseña incorrectos."
+
+#: dwb_user/forms.py:62 dwb_user/forms.py:67
+msgid "Your Name"
+msgstr "Su nombre"
+
+#: dwb_user/forms.py:90 dwb_user/models.py:12
+msgid "No"
+msgstr "No"
+
+#: dwb_user/forms.py:91 dwb_user/models.py:13
+msgid "Yes"
+msgstr "Sí"
+
+#: dwb_user/forms.py:93
+msgid "Are you a Pastor/Leader?"
+msgstr "¿Es usted un Pastor/Líder?"
+
+#: dwb_user/forms.py:95
+msgid "If yes, enter your church name"
+msgstr "Si es así, introduzca el nombre de su iglesia"
+
+#: dwb_user/forms.py:100 dwb_user/forms.py:214 dwb_user/forms.py:225
+msgid "Church Name"
+msgstr "Nombre de la Iglesia"
+
+#: dwb_user/forms.py:130
+msgid "Provided email address is already registered."
+msgstr ""
+"La dirección de correo electrónico proporcionado ya fue registrado "
+"anteriormente."
+
+#: dwb_user/forms.py:148
+msgid "First Name"
+msgstr "Nombre"
+
+#: dwb_user/forms.py:154
+msgid "Last Name"
+msgstr "Apellido"
+
+#: dwb_user/forms.py:171
+msgid "First name is required."
+msgstr "Su nombre es requerido."
+
+#: dwb_user/forms.py:182
+msgid "Last name is required."
+msgstr "Su apellido es requerido."
+
+#: dwb_user/forms.py:193
+msgid "Email address is required."
+msgstr "Una dirección de correo electrónico es requerida."
+
+#: dwb_user/forms.py:200
+msgid "This email address is not available."
+msgstr "Esta dirección de correo electrónico no es válida."
+
+#: dwb_user/forms.py:213
+msgid "Is Pastor"
+msgstr "Es usted un pastor"
+
+#: dwb_user/forms.py:260 dwb_user/forms.py:266
+msgid "Retry"
+msgstr "Repita su contraseña"
+
+#: dwb_user/forms.py:274
+msgid "Passwords don't match"
+msgstr ""
+
+#: dwb_user/templates/dwb_user/edit_profile.html:10
+msgid "Update Profile"
+msgstr "Editar Perfil"
+
+#: dwb_user/templates/dwb_user/email_list.html:12
+msgid "Mailing List"
+msgstr "Lista de correo electrónico"
+
+#: dwb_user/templates/dwb_user/emails/forgot_password.txt:4
+#, python-format
+msgid ""
+"\n"
+"        You're receiving this email because you requested a password reset "
+"for your user account at %(site)s.\n"
+"    "
+msgstr ""
+"\n"
+"        Está recibiendo este correo electrónico porque ha solicitado un "
+"restablecimiento de contraseña para su cuenta de usuario en %(site)s.\n"
+"    "
+
+#: dwb_user/templates/dwb_user/emails/forgot_password.txt:8
+msgid "Please go to the following page and choose a new password:"
+msgstr "Por favor vaya a la siguiente página y elija una nueva contraseña:"
+
+#: dwb_user/templates/dwb_user/emails/forgot_password.txt:12
+msgid "Thanks for using our site!"
+msgstr "¡Gracias por usar nuestra página!"
+
+#: dwb_user/templates/dwb_user/emails/forgot_password.txt:14
+#, python-format
+msgid ""
+"\n"
+"        The %(site)s team\n"
+"    "
+msgstr ""
+"\n"
+"        El equipo de %(site)s\n"
+"    "
+
+#: dwb_user/templates/dwb_user/login.html:11
+msgid "Are you a new user? Register below."
+msgstr "¿Es usted un usuario nuevo? Regístrese a continuación"
+
+#: dwb_user/templates/dwb_user/login.html:16
+#: templates/fragments/navbar.html:53
+msgid "Register"
+msgstr "Registrarse"
+
+#: dwb_user/templates/dwb_user/login.html:19
+msgid "By clicking 'Register' you agree to our"
+msgstr "Al darle clic a 'Registrase' usted esta de acuerdo con nuestros"
+
+#: dwb_user/templates/dwb_user/login.html:19
+#: templates/fragments/footer.html:10
+msgid "Terms of Service"
+msgstr "Términos de Servicio"
+
+#: dwb_user/templates/dwb_user/login.html:26
+#: dwb_user/templates/dwb_user/login.html:31
+msgid "Sign In"
+msgstr "Iniciar sesión"
+
+#: dwb_user/templates/dwb_user/login.html:34
+msgid "Forgot Password?"
+msgstr "¿Olvidó su contraseña?"
+
+#: dwb_user/templates/dwb_user/my_account.html:10
+#: templates/fragments/navbar.html:49
+msgid "My Account"
+msgstr "Mi Cuenta"
+
+#: dwb_user/templates/dwb_user/my_account.html:16
+msgid "EDIT PROFILE"
+msgstr "EDITAR PERFIL"
+
+#: dwb_user/templates/dwb_user/my_account.html:17
+msgid "CHANGE PASSWORD"
+msgstr "CAMBIAR CONTRASEÑA"
+
+#: dwb_user/templates/dwb_user/my_account.html:20
+msgid "GET EMAIL LIST"
+msgstr "OBTENER LISTA DE CORREOS ELECTRÓNICOS"
+
+#: dwb_user/templates/dwb_user/my_account.html:25
+msgid "My Workbooks"
+msgstr "Mis Manuales"
+
+#: dwb_user/templates/dwb_user/my_account.html:56
+msgid "Groups"
+msgstr "Grupos"
+
+#: dwb_user/templates/dwb_user/my_account.html:74
+msgid "Other workbooks we offer"
+msgstr "Otros manuales que ofrecemos"
+
+#: dwb_user/templates/dwb_user/order_history.html:8
+msgid "Order History"
+msgstr ""
+
+#: dwb_user/templates/dwb_user/order_history.html:16
+msgid "Order Date"
+msgstr ""
+
+#: dwb_user/templates/dwb_user/order_history.html:17
+msgid "Order Amount"
+msgstr ""
+
+#: dwb_user/templates/dwb_user/order_history.html:19
+msgid "Quantity Claimed"
+msgstr ""
+
+#: dwb_user/templates/dwb_user/order_history.html:21
+msgid "Book Claim Status"
+msgstr "Estado de reclamo de su manual"
+
+#: dwb_user/templates/dwb_user/order_history.html:36
+msgid "Claimed by"
+msgstr "Reclamado por"
+
+#: dwb_user/templates/dwb_user/order_history.html:41
+#: dwb_user/templates/dwb_user/order_history.html:52
+msgid "Send Gift Code"
+msgstr ""
+
+#: dwb_user/templates/dwb_user/order_history.html:60
+msgid "To:"
+msgstr "Para:"
+
+#: dwb_user/templates/dwb_user/registration/password_forgot_form.html:6
+#: dwb_user/templates/dwb_user/registration/password_forgot_form.html:14
+msgid "Forgot Password"
+msgstr "¿Olvidó su contraseña?"
+
+#: dwb_user/templates/dwb_user/registration/password_forgot_form.html:26
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr ""
+"¿Ha olvidado su contraseña? Introduzca su dirección de correo electrónico, y "
+"le mandaremos un correo electrónico para configurar una nueva."
+
+#: dwb_user/templates/dwb_user/registration/password_forgot_form.html:33
+msgid "Email address:"
+msgstr "Correo electrónico:"
+
+#: dwb_user/templates/dwb_user/registration/password_forgot_form.html:38
+msgid "Forgot my Password"
+msgstr "¿Olvidó su contraseña?"
+
+#: dwb_user/templates/dwb_user/registration/password_reset_form.html:6
+#: dwb_user/templates/dwb_user/registration/password_reset_form.html:14
+msgid "Change Password"
+msgstr "Cambiar Contraseña"
+
+#: dwb_user/templates/dwb_user/registration/password_reset_form.html:26
+msgid "Please, enter new password"
+msgstr "Restablecer mi contraseña"
+
+#: dwb_user/templates/dwb_user/registration/password_reset_form.html:33
+msgid "Change my Password"
+msgstr "Cambiar mi contraseña"
+
+#: dwb_user/views.py:175
+msgid "Email has been sent successfully."
+msgstr ""
+
+#: dwb_user/views.py:210
+msgid "An error has occurred within processing your Request."
+msgstr ""
+
+#: dwb_user/views.py:228
+msgid "Your Password has been reset successfully."
+msgstr "Su contraseña ha sido cambiada."
+
+#: dwb_user/views.py:328
+msgid "Gift code from DiscipleshipWorkbooks"
+msgstr ""
+
+#: settings.py:41
+msgid "English"
+msgstr "Ingles"
+
+#: settings.py:42
+msgid "Spanish"
+msgstr "Español"
+
+#: templates/fragments/footer.html:8
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/fragments/footer.html:9
+msgid "Contact"
+msgstr "Contáctenos"
+
+#: templates/fragments/navbar.html:6
+msgid ""
+"\n"
+"            Discipleship <b>Workbooks</b>\n"
+"        "
+msgstr ""
+"\n"
+"            Manuales de <b>Discipulado</b>\n"
+"        "
+
+#: templates/fragments/navbar.html:21 templates/fragments/navbar.html.py:23
+#: templates/fragments/navbar.html:25
+msgid "PayPal - The safer, easier way to pay online!"
+msgstr ""
+
+#: templates/fragments/navbar.html:49
+msgid "Log Out"
+msgstr "Cerrar Sesión"
+
+#: templates/fragments/navbar.html:50
+msgid "Admin"
+msgstr "Administración"
+
+#: templates/fragments/navbar.html:53
+msgid "Log In"
+msgstr "Iniciar Sesión"
+
+#~ msgid "Recipient's name"
+#~ msgstr "Nombre del destinatario"
+
+#~ msgid "Recipient's Name"
+#~ msgstr "Nombre del destinatario"
+
+#~ msgid "Recipient's Email"
+#~ msgstr "Correo electrónico del destinatario"
+
+#~ msgid "Please correct the error below."
+#~ msgstr "Favor de corregir el siguiente error."
+
+#~ msgid "Please correct the errors below."
+#~ msgstr "Favor de corregir los siguientes errores."
+
+#~ msgid ""
+#~ "Please enter your old password, and then enter your new password twice."
+#~ msgstr ""
+#~ "Por favor introduzca su contraseña anterior y después su contraseña nueva "
+#~ "dos veces."
+
+#~ msgid "Old password"
+#~ msgstr "Contraseña anterior"
+
+#~ msgid "New password"
+#~ msgstr "Contraseña nueva"
+
+#~ msgid "Password (again)"
+#~ msgstr "Contraseña (nuevamente)"
+
+#~ msgid "Password Changed"
+#~ msgstr "Contraseña cambiada"
+
+#~ msgid "Your password has been set.  You may go ahead and log in now."
+#~ msgstr ""
+#~ "Su contraseña ha sido establecida. Favor de proseguir e iniciar sesión."
+
+#~ msgid ""
+#~ "Please enter your new password twice so we can verify you typed it in "
+#~ "correctly."
+#~ msgstr ""
+#~ "Favor de introducir su nueva contraseña dos veces para que podamos "
+#~ "verificar que la introdujo correctamente."
+
+#~ msgid "New password:"
+#~ msgstr "Contraseña nueva:"
+
+#~ msgid "Confirm password:"
+#~ msgstr "Confirme la contraseña:"
+
+#~ msgid ""
+#~ "The password reset link was invalid, possibly because it has already been "
+#~ "used.  Please request a new password reset."
+#~ msgstr ""
+#~ "El enlace para restablecer su contraseña es invalido, posiblemente debido "
+#~ "a que ya ha sido usado. Por favor solicite restablecer su contraseña "
+#~ "nuevamente."
+
+#~ msgid ""
+#~ "We've emailed you instructions for setting your password. You should be "
+#~ "receiving them shortly."
+#~ msgstr ""
+#~ "Le hemos enviado un correo electrónico con las instrucciones para "
+#~ "establecer su contraseña. Deberá de recibirlas brevemente."
+
+#~ msgid ""
+#~ "If you don't receive an email, please make sure you've entered the "
+#~ "address you registered with, and check your spam folder."
+#~ msgstr ""
+#~ "Si no recibe un correo electrónico, por favor asegúrese de que haya "
+#~ "puesto el correo con el que se registró."
+
+#~ msgid "Your password has been changed. Log in now."
+#~ msgstr "Su contraseña ha sido cambiada. Iniciar sesión."
+
+#~ msgid "Your password reset Confirmation."
+#~ msgstr "Confirmación de la configuración de su contraseña."

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block extra_head %}
+    <!-- Custom Book Style -->
+    {% comment %}
+    <style type="text/css">
+        {{ book.get_style|safe }}
+    </style>
+    {% endcomment %}
+{% endblock %}
+
+{% block content %}
+<div id="book-toc-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1><a href="{% url 'book-overview' book_slug=book.slug %}">{{ book.title }}</a></h1>
+
+                <p>{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="book-toc-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24 book-display">
+                <div class="book-toc">
+                    <h1 class="chapter-title">{% trans "Table of Contents" %}</h1>
+
+                {% if copy.status == "progress" %}
+                    <p class="instructions-message">{% trans "Complete current chapter to get access to the next one." %}</p>
+                {% endif %}
+
+                    <ol>
+                    {% for entry in chapters %}
+                        <li class="{{ entry.item.item_type }}-item">{% if entry.can_access %}<a href="{{ entry.item.get_absolute_url }}">{{ entry.item.title }}</a>{% else %}{{ entry.item.title }}{% endif %}</li>
+                    {% endfor %}
+                    </ol>
+
+                {% if appendix %}
+                    <h2 class="appendix">{% trans "Appendix" %}</h2>
+
+                    <ol>
+                    {% for entry in appendix %}
+                        <li class="{{ entry.item.item_type }}-item"><a href="{{ entry.item.get_absolute_url }}">{{ entry.item.title }}</a></li>
+                    {% endfor %}
+                    </ol>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base_admin.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="admin-purchases-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="admin-purchases-1" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+
+    <div class="admin-purchase-wrapper">
+        <h1></h1>
+
+        <dl>
+            <dt>{% trans "Invoice" %}</dt>
+            <dd>{{ purchase.invoice_number }}</dd>
+            <dt>{% trans "Date" %}</dt>
+            <dd>{{ purchase.date }}</dd>
+            <dt>{% trans "Book" %}</dt>
+            <dd>{{ purchase.book }}</dd>
+            <dt>{% trans "Quantity" %}</dt>
+            <dd>{{ purchase.quantity }}</dd>
+            <dt>{% trans "Price" %}</dt>
+            <dd>{{ purchase.price }}</dd>
+            <dt>{% trans "Total" %}</dt>
+            <dd>{{ purchase.total_charge }}</dd>
+            <dt>{% trans "Gift Code" %}</dt>
+            <dd>{{ purchase.gift_code }}</dd>
+            <dt>{% trans "Buyer" %}</dt>
+            <dd>{{ purchase.buyer_user|default:"" }} {% if purchase.buyer_email %}({{ purchase.buyer_email }}){% endif %}</dd>
+            <dt>{% trans "Recipient" %}</dt>
+            <dd>{{ purchase.recipient_name|default:"" }} {% if purchase.recipient_email %}({{ purchase.recipient_email }}){% endif %}</dd>
+        </dl>
+
+    {% if purchase.claims.count %}
+        <h2>{% trans "Redeemed" %}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "Date" %}</th>
+                    <th>{% trans "User" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for claim in purchase.claims.all %}
+                <tr>
+                    <td>{{ claim.date }}</td>
+                    <td>{{ claim.user.get_full_name }} ({{ claim.user.email }})</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+        <h2>{% trans "Update" %}</h2>
+        <form action="" method="POST" class="horizontal-p-form">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <p class="submit-row"><button type="submit" class="default-button">{% trans "Submit" %}</button></p>
+        </form>
+    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+[
+  {
+    "model": "dwb_book.Book",
+    "pk": 1,
+    "fields": {
+      "status": "active",
+      "title": "Principles of Discipling",
+      "slug": "principles-of-discipling",
+      "price": "1.00",
+      "first_appendix_heading": 17,
+      "cover_image": "book-1.jpeg",
+      "certificate_background" : "certificate-1.jpeg",
+      "certificate_background_width": 150,
+      "certificate_background_height": 100,
+      "certificate_name_top": 49,
+      "date_available" : "2013-01-02 1:00:00Z"
+    }
+  },
+  {
+    "model": "dwb_book.Book",
+    "pk": 2,
+    "fields": {
+      "status": "active",
+      "title": "My Little Book",
+      "slug": "my-little-book",
+      "price": "1.00",
+      "cover_image": "book-2.jpeg",
+      "certificate_background" : "certificate-2.jpeg",
+      "certificate_background_width": 150,
+      "certificate_background_height": 100,
+      "certificate_name_top": 49,
+      "date_available" : "2013-01-02 1:00:00Z"
+    }
+  },
+  {
+    "model": "dwb_book.Book",
+    "pk": 10,
+    "fields": {
+      "status": "draft",
+      "title": "Future Best Seller",
+      "slug": "future-best-seller",
+      "price": "10.00",
+      "cover_image": "book-10.jpeg",
+      "certificate_background" : "certificate-10.jpeg",
+      "certificate_background_width": 150,
+      "certificate_background_height": 100,
+      "certificate_name_top": 49,
+      "date_available" : "2013-01-02 1:00:00Z"
+    }
+  },
+  {
+    "model": "dwb_book.Book",
+    "pk": 11,
+    "fields": {
+      "status": "hidden",
+      "title": "Secret Project",
+      "slug": "top-secret",
+      "price": "9.00",
+      "cover_image": "book-11.jpeg",
+      "certificate_background" : "certificate-11.jpeg",
+      "certificate_background_width": 150,
+      "certificate_background_height": 100,
+      "certificate_name_top": 49,
+      "date_available" : "2013-01-02 1:00:00Z"
+    }
+  }
+]

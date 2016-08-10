@@ -1,0 +1,247 @@
+//-----------------------------------------------------------------------------
+// Donate Form
+//-----------------------------------------------------------------------------
+#donate-form {
+}
+
+//-----------------------------------------------------------------------------
+// Locale Form
+//-----------------------------------------------------------------------------
+#locale-form {
+    color:              @gray;
+    margin-right:       5px;
+
+    select {
+        padding:        3px;
+        width:          auto;
+    }
+}
+
+//-----------------------------------------------------------------------------
+// Register Form
+// Login Form
+// Edit Profile Form
+//-----------------------------------------------------------------------------
+#register-form,
+#login-form,
+#edit-profile-form,
+#workbook-options-form,
+#edit-book-item-form,
+#export-book-form {
+    input {
+        .pb-input-text(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    input[type='submit'] {
+        .pb-big-button(
+            @width:     80%,
+            @ptop:      8px
+        );
+
+        float:              right;
+    }
+    input[type="checkbox"] {
+        .pb-input-checkbox();
+    }
+    textarea {
+        margin-bottom:      10px;
+
+        .pb-textarea(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    select {
+        .pb-select(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    label.control-label {
+        text-align:         left;
+    }
+    span.help-block {
+        color:              @brand-danger;
+        padding-left:       20%;
+    }
+    div.checkbox {
+        margin-left:        19%;
+        margin-bottom:      10px;
+    }
+
+    .form-group {
+        margin:             0 0 15px 0;
+
+        //.pb-form-group-horiz();
+    }
+    .input-group {
+        > input {
+            border-right:               none;
+            border-top-right-radius:    0px;
+            border-bottom-right-radius: 0px;
+        }
+    }
+    .input-group-addon {
+        .pb-input-group-addon(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    .half {
+        display:            inline-block;
+        width:              78%;
+    }
+    .errorlist {
+        color:          red;
+
+        list-style:     none;
+        margin:         0;
+        padding:        0;
+
+        ~ p {
+            margin-top:     0;
+        }
+    }
+}
+
+//-----------------------------------------------------------------------------
+// Create Group Form
+// Leave Group Form
+// Rename Group Form
+// Invite Group Form
+// Delete Book Copy Form
+// Forgot Password Form
+// Reset Password Form
+//-----------------------------------------------------------------------------
+#create-group-form,
+#leave-group-form,
+#rename-group-form,
+#forgot-password-form,
+#reset-password-form {
+    input {
+        .pb-input-text(
+            @bdcolor:       @gray-lighter,
+            @width:         200px
+        );
+    }
+}
+
+#invite-group-form,
+#delete-book-copy-form {
+    input {
+        .pb-input-text(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    textarea {
+        margin-bottom:      10px;
+
+        .pb-textarea(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    select {
+        .pb-select(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    input[type='submit'] {
+        .pb-big-button(
+            @width:     80%,
+            @ptop:      8px
+        );
+
+        float:              right;
+    }
+    input[type="checkbox"] {
+        .pb-input-checkbox();
+    }
+    label.control-label {
+        text-align:         left;
+    }
+    span.help-block {
+        color:              @brand-danger;
+        padding-left:       20%;
+    }
+    div.checkbox {
+        margin-left:        19%;
+        margin-bottom:      10px;
+    }
+
+    .form-group {
+        margin:             0 0 15px 0;
+
+        .pb-form-group-horiz();
+    }
+    .input-group {
+        > input {
+            border-right:               none;
+            border-top-right-radius:    0px;
+            border-bottom-right-radius: 0px;
+        }
+    }
+    .input-group-addon {
+        .pb-input-group-addon(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    .errorlist {
+        color:          red;
+
+        list-style:     none;
+        margin:         0;
+        padding:        0;
+
+        ~ p {
+            margin-top:     0;
+        }
+    }
+}
+
+//-----------------------------------------------------------------------------
+// Add main Heading Form
+//-----------------------------------------------------------------------------
+#add-main-heading-form {
+    input {
+        .pb-input-text(
+            @bdcolor:       @gray-lighter,
+            @width:         200px
+        );
+    }
+}
+
+//-----------------------------------------------------------------------------
+// Tell a Friend modal Form
+// Send Group Message modal Form
+// Populate Message Form
+// Edit Flat Page Form
+// Add Purchase Form
+//-----------------------------------------------------------------------------
+#tell-friend-modal-form,
+#send-group-message-modal-form,
+#populate-message-form,
+#edit-flatpage-form,
+#add-purchase-form {
+    input {
+        .pb-input-text(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    textarea {
+        .pb-textarea(
+            @height:        100px,
+            @bdcolor:       @gray-lighter
+        );
+    }
+    select {
+        .pb-select(
+            @bdcolor:       @gray-lighter
+        );
+    }
+    span.help-block {
+        color:              @brand-danger;
+        padding-left:       20%;
+    }
+
+    .form-group {
+        margin-bottom:      10px;
+    }
+}

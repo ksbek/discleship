@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<div class="inner-navigation">
+    <ul>
+        <li><a href="{% url 'book-overview' book_slug=book.slug %}">{% trans "Overview" %}</a></li>
+        <li><a href="{% url 'book-toc' book_slug=book.slug %}">{% trans "Table of Contents" %}</a></li>
+        <li><a href="{% url 'book-export' book_slug=book.slug %}">{% trans "Export to PDF" %}</a></li>
+        <li><a href="{% url 'book-copy-delete' book_slug=book.slug %}">{% trans "Delete Data" %}</a></li>
+    </ul>
+</div>

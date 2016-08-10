@@ -1,0 +1,368 @@
+<script>
+    /*************************************************************************/
+    /*** AJAX Spinner                                                      ***/
+    /*************************************************************************/
+    $(document).ajaxStart(function () {
+        $("#spinner").fadeIn("slow");
+    });
+    $(document).ajaxStop(function () {
+        $("#spinner").fadeOut("slow");
+    });
+
+    /*************************************************************************/
+    /*** Custom Scripts                                                    ***/
+    /*************************************************************************/
+    $(document).ready(function () {
+        //--- Initialize NavBar Wizard
+        $(".nav-tabs > li a[title]").tooltip();
+        $('a[data-toggle="tab"]').on("show.bs.tab", function (e) {
+            var $target = $(e.target);
+
+            if ($target.parent().hasClass("disabled")) {
+                return false;
+            }
+        });
+        $(".next-step").click(function (e) {
+            var $active = $(".wizard .nav-tabs li.active");
+
+            $active.next().removeClass("disabled");
+            nextTab($active);
+        });
+        $(".prev-step").click(function (e) {
+            var $active = $(".wizard .nav-tabs li.active");
+
+            prevTab($active);
+        });
+
+        //--- Call Fix Footer
+        fixFooter();
+
+        //--- Initialize YouTube
+        $(function () {
+            $("a.youtube").YouTubePopup({
+                autoplay:   1
+            });
+        })
+    })
+
+    //-------------------------------------------------------------------------
+    //--- Mark Message as read
+    $(".remove-msg").click(function () {
+        message_id = $(this).attr("message");
+        element = $(this);
+
+        $.post(
+            "{% url 'ajax-mark-delivered-message-read' %}",
+            {
+                "message_id":       message_id
+            }
+        ).done(function (data) {
+            console.log("Success");
+
+            $(element).parent().hide("slow", function () {});
+        }
+        ).fail(function (data) {
+            console.log("Fail");
+        });
+
+        return true;
+    })
+
+    //-------------------------------------------------------------------------
+    //--- Fix Footer
+    $('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+        fixFooter();
+    })
+
+    function fixFooter() {
+        $("#wrapper").css({
+            "height":       "auto"
+        })
+        $("#footer").css({
+            "margin-top":   "0px"
+        });
+
+        var windowHeight = window.innerHeight;
+        var wrapperHeight = $("#wrapper").height();
+        var footerHeight = $("#footer").height();
+
+        console.log(">>> windowHeight  :", windowHeight);
+        console.log(">>> wrapperHeight :", wrapperHeight);
+        console.log(">>> footerHeight  :", footerHeight);
+
+        if (wrapperHeight < windowHeight) {
+            $("#wrapper").height(windowHeight + "px");
+            $("#footer").css({
+                "position": "absolute",
+                "bottom":   "0"
+            });
+        } else {
+            $("#footer").css({
+                "position": "relative"
+            });
+        }
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Tabs Wizard
+    function nextTab (elem) {
+        $(elem).next().find('a[data-toggle="tab"]').click();
+    }
+    function prevTab (elem) {
+        $(elem).prev().find('a[data-toggle="tab"]').click();
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Toggle collapsing Area
+    $("a[data-toggle='collapse']").click(function () {
+        $(this).find("i.toggle-icon").toggleClass(
+            "fa-chevron-up fa-chevron-down");
+    })
+    $(".collapse").on("shown.bs.collapse", function () {
+        fixFooter();
+    })
+    $(".collapse").on("hidden.bs.collapse", function () {
+        fixFooter();
+    })
+
+    /*************************************************************************/
+    /*** Bootstrap Plugins                                                 ***/
+    /*************************************************************************/
+    //-------------------------------------------------------------------------
+    //--- Initialize Carousel
+    $(".carousel").carousel({
+        interval:       3000
+    })
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Date Picker
+    $("input[name='birth_day']").datepicker({
+        dateFormat:     "mm/dd/yy",
+        changeYear:     true,
+        yearRange:      "-100:",
+        changeMonth:    true
+    });
+    $("input[name='start_date']").datepicker({
+        dateFormat:     "mm/dd/yy",
+        changeYear:     true,
+        yearRange:      ":+2",
+        changeMonth:    true
+    });
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Max Length
+    $("input[maxlength]").maxlength({
+        alwaysShow:         false,
+        threshold:          10,
+        warningClass:       "label label-success",
+        limitReachedClass:  "label label-danger",
+        placement:          "bottom-right",
+        validate:           true
+    });
+    $("textarea[maxlength]").maxlength({
+        alwaysShow:         false,
+        threshold:          100,
+        warningClass:       "label label-success",
+        limitReachedClass:  "label label-danger",
+        placement:          "bottom-right",
+        validate:           true
+    });
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Select Picker
+    $(".selectpicker").selectpicker({
+        style:          "btn-select",
+        size:           10
+    });
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Slider
+    $(".slider").bootstrapSlider({
+        min:                1,
+        max:                16,
+        step:               1,
+        orientation:        "horizontal",       // "vertical" or "horizontal"
+        value:              8,
+        selection:          "before",           // "before", "after" or "none"
+        tooltip:            "show",             // "show", "hide", or "always"
+        tooltip_split:      false,
+        tooltip_position:   "top",              // "top"/"bottom", or and "left"/"right"
+        handle:             "round",            // "round", "square", "triangle" or "custom"
+        reversed:           false,
+        enabled:            true,
+        scale:              "linear",           // "linear" or  "logarithmic"
+        focus:              false
+    });
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Tags Input
+    $("#id_tags").tagsinput("refresh");
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Tool Tips
+    $("[data-toggle='tooltip']").tooltip();
+
+    /*************************************************************************/
+    /*** jQuery Plugins                                                    ***/
+    /*************************************************************************/
+    //-------------------------------------------------------------------------
+    //--- Initialize Color Box
+    $(".gallery-photos").colorbox({
+        rel:            "gallery-photos",
+        transition:     "fade",
+        scalePhotos:    true,
+        scrolling:      true,
+        loop:           true,
+        //width: "100%",
+        maxHeight:      "90%"
+    });
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Equal Height
+    function equalHeight(group) {
+        //--- Adjust Height of each Block
+        var tallest = 0;
+
+        group.each(function () {
+            thisHeight = $(this).height();
+
+            if(thisHeight > tallest) {
+                tallest = thisHeight;
+            }
+        });
+        group.height(tallest);
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Input Mask
+    $(document).ready(function(){
+        $("input[name='birth_day']").inputmask({
+            "alias":    "mm/dd/yyyy"
+        });
+        $("input[name='start_date']").inputmask({
+            "alias":    "mm/dd/yyyy"
+        });
+        $("input[name='start_time']").inputmask("99:99");
+        $("input[name='alt_person_email']").inputmask("email");
+        $("input[name='alt_person_phone']").inputmask("+9{1,3}(9{3})9{3}-9{4}");
+        $("input[name='phone_number']").inputmask("+9{1,3}(9{3})9{3}-9{4}");
+        $("input[name='mobile_phone_number']").inputmask("+9{1,3}(9{3})9{3}-9{4}");
+    });
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Noty
+    $.noty.defaults = {
+        layout:         "topRight",
+        theme:          "defaultTheme",         // or "relax"
+        type:           "error",
+        dismissQueue:   true,                   // If you want to use queue feature set this true
+        template:       "" +
+                        "<div class='noty_message'>" +
+                        "    <span class='noty_text'></span>" +
+                        "    <i class='fa fa-times-circle-o fa-fw pull-right remove-msg' style='color:red; cursor:pointer;' message='{{ message.id }}'></i>" +
+                        "    <div class='noty_close'></div>" +
+                        "</div>",
+        text:           "",
+        animation: {
+            open:       "animated bounce",      // Animate.css class names
+            close:      "animated flipOutX",    // Animate.css class names
+            easing:     "swing",                // unavailable - no need
+            speed:      500                     // unavailable - no need
+        },
+        timeout:        5,                      // delay for closing event. Set false for sticky notifications
+        force:          true,                   // adds notification to the beginning of queue when set to true
+        modal:          false,
+        maxVisible:     10,                     // you can set max visible notification for dismissQueue true option,
+        killer:         false,                  // for close all notifications before show
+        closeWith:      ["click"],              // ["click", "button", "hover", "backdrop"]. backdrop click will close all notifications
+        callback: {
+            onShow:         function () {},
+            afterShow:      function () {},
+            onClose:        function () {
+                //alert("onClose");
+            },
+            afterClose:     function () {
+                //alert("afterClose");
+            },
+            onCloseClick:   function () {
+                //alert("onCloseClick");
+            },
+        },
+        buttons:        false                   // an array of buttons
+    };
+
+    {% if messages %}
+        {% for message in messages %}
+            noty({
+                type:   {{ message.tags|default:"success" }},
+                text:   "{{ message }}"
+            });
+        {% endfor %}
+    {% endif %}
+
+    {% if my_messages %}
+        {% for message in my_messages %}
+            noty({
+                type:       "success",
+                text:       "{{ message.message.text }}",
+                template:   "" +
+                            "<div class='noty_message'>" +
+                            "    <span class='noty_text'></span>" +
+                            "    <i class='fa fa-times-circle-o fa-fw pull-right remove-msg' style='color:red; cursor:pointer;' message='{{ message.id }}'></i>" +
+                            "    <div class='noty_close'></div>" +
+                            "</div>"
+            });
+        {% endfor %}
+    {% endif %}
+
+    /*************************************************************************/
+    /*** Mark the Message as read                                          ***/
+    /*************************************************************************/
+    $(".remove-msg").click(function () {
+        var message_id = $(this).attr("message");
+        var element = $(this);
+
+        console.log(">>> MESSAGE ID : ", message_id);
+
+        $.post(
+            "{% url 'ajax-mark-delivered-message-read' %}",
+            {
+                "message_id":       message_id
+            }
+        ).done(function (data) {
+            console.log("Success");
+
+            $(element).parent().hide("slow", function () {});
+        }
+        ).fail(function (data) {
+            console.log("Fail");
+        });
+
+        return true;
+    })
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Scroll to Top
+    $.scrolltotop({
+        top_standoff:   400,
+        speed:          100,
+        segment:        true
+    });
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Smooth Scroll
+    smoothScroll.init({
+        speed:          500,
+        easing:         "easeInOutCubic",
+        updateURL:      false,
+        offset:         0,
+        callbackBefore: function ( toggle, anchor ) {},
+        callbackAfter:  function ( toggle, anchor ) {}
+    });
+
+    //-------------------------------------------------------------------------
+    //--- Initialize Sticky
+    $(".jScrollDiv").sticky({
+        topSpacing:     50
+    });
+</script>

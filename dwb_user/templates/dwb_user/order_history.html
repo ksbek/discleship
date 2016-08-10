@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="user-edit-profile-wrapper">
+        {% csrf_token %}
+
+        <h2 class="medium-heading">{% trans "Order History" %}</h2>
+    </div>
+{% endblock %}
+
+{% block content2 %}
+    <Table width="100%">
+        <tr style="font-weight:bold; text-align:center; background-color:#ccc;">
+            <td>{% trans "Book" %}</td>
+            <td>{% trans "Order Date" %}</td>
+            <td>{% trans "Order Amount" %}</td>
+            <td>{% trans "Quantity" %}</td>
+            <td>{% trans "Quantity Claimed" %}</td>
+            <td>{% trans "Gift Code" %}</td>
+            <td>{% trans "Book Claim Status" %}</td>
+            <td></td>
+        </tr>
+
+    {% for order in orders %}
+        <tr style="background-color:{% cycle '#fff' '#eee' %}">
+            <td>{{ order.book.title }}</td>
+            <td style="text-align:center">{{ order.date |date:"M d, Y"}}</td>
+            <td style="text-align:center">${{ order.total_charge }}</td>
+            <td style="text-align:center">{{ order.quantity }}</td>
+            <td style="text-align:center">{{ order.claims.all | length }}</td>
+            <td style="text-align:center">{{ order.gift_code }}</td>
+            <td>
+            {% for claim in claims %}
+                {% if claim.purchase_id == order.id %}
+                    {% trans "Claimed by" %} {{claim.user.first_name}} {{claim.user.last_name}}<br>
+                {% endif %}
+            {% endfor %}
+            </td>
+            <td>
+                <a href="javascript:" data-claim_code="{{ order.gift_code }}" class="btn btn-primary btn-xs  claim-code" style="margin:2px">{% trans "Send Gift Code" %}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </Table>
+
+    <div class="modal fade" id="claim-code-dialog" tabindex="-1" role="dialog" aria-labelledby="send-message-dialog-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="send-message-dialog-title">{% trans "Send Gift Code" %}</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="alert" style="display: none;"></div>
+
+                    <form method="POST" action="{% url 'send_claim_code' %}">
+                        {% csrf_token %}
+
+                        <p><label>{% trans "To:" %}</label> <input type=text name="recipient-email"></p>
+                        <p><textarea name="message" placeholder="{% trans 'Enter your message here' %}" ></textarea></p>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                    <button type="button" class="btn btn-primary">{% trans "Send" %}</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{% endblock %}

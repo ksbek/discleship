@@ -1,0 +1,32 @@
+[
+  {
+    "model": "dwb_store.Purchase",
+    "pk": 1,
+    "fields": {
+      "invoice_number": "123-1",
+      "uuid": "abcdef-1",
+      "status": "pending",
+      "book" : 1,
+      "quantity" : 1,
+      "date" : "2013-01-01 01:00Z",
+      "price" : 10,
+      "total_charge" : 10,
+      "gift_code" : "gift-1"
+    }
+  },
+  {
+    "model": "dwb_store.Purchase",
+    "pk": 2,
+    "fields": {
+      "invoice_number": "123-2",
+      "uuid": "abcdef-2",
+      "status": "payed",
+      "book" : 1,
+      "quantity" : 1,
+      "date" : "2013-01-01 01:00Z",
+      "price" : 10,
+      "total_charge" : 10,
+      "gift_code" : "gift-2"
+    }
+  }
+]

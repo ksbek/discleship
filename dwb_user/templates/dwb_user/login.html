@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content2 %}
+<div class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <form id="register-form" action="{% url 'register' %}" method="POST">
+                    {% csrf_token %}
+
+                    <h3>{% trans "Are you a new user? Register below." %}</h3>
+
+                    {{ register_form.as_p }}
+
+                    <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+
+                    <p class="legal-note">
+                        {% trans "By clicking 'Register' you agree to our" %} <a href="#" style="color:#469cce">{% trans "Terms of Service" %}</a>.
+                    </p>
+                </form>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <form id="login-form" action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+
+                    <h3>{% trans "Sign In" %}</h3>
+
+                    {{ login_form.as_p }}
+
+                    <button type="submit" class="btn btn-primary">{% trans "Sign In" %}</button>
+
+                    <p class="footer-row">
+                        <a href="{% url 'forgot-password' %}">{% trans "Forgot Password?" %}</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

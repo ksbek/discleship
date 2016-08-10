@@ -1,0 +1,41 @@
+{% load i18n %}
+{% load static %}
+
+<div class="modal fade" id="tell-friend-dialog" tabindex="-1" role="dialog" aria-labelledby="tell-friend-dialog-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="tell-friend-dialog-title">{% trans "Send Message" %}</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="alert" style="display: none;">
+                </div>
+
+                <form id="tell-friend-modal-form" method="POST" action="{% url 'group-tell-friend' %}">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="recipient-email" class="control-label">{% trans "Recipient" %}:</label>
+                        <input type="email" class="form-control" id="recipient-email" name="recipient-email" placeholder="{% trans 'Recipient email here' %}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">{% trans "Message" %}:</label>
+                        <textarea class="form-control" id="message-text" name="message-text" placeholder="{% trans 'Enter your message here' %}" /></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="book-url" name="book-url" value="" />
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                <button type="button" class="btn btn-primary">{% trans "Send" %}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

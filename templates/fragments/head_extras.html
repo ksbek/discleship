@@ -1,0 +1,126 @@
+{% load i18n %}
+{% load static %}
+{% load compress %}
+
+    <!-- Underscore -->
+    <script type="text/javascript" charset="utf-8" src="{% static 'underscore/underscore-min.js' %}"></script>
+
+    <!-- Animate CSS -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+{% endcompress %}
+
+    <!-- Less CSS -->
+{% compress css %}
+    <link rel="stylesheet" type="text/less" href="{% static 'less/imports.less' %}">
+{% endcompress %}
+{% comment %}
+    <script type="text/javascript" src="{% static 'less/dist/less.min.js' %}"></script>
+{% endcomment %}
+
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf-8" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+
+    <!-- jQuery UI -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'jquery-ui/themes/base/all.css' %}">
+{% endcompress %}
+    <script type="text/javascript" charset="utf-8" src="{% static 'jquery-ui/jquery-ui.min.js' %}"></script>
+
+    <!-- Twitter Bootstrap -->
+    <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+    <!-- Twitter Bootstrap Awesome Checkbox -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css' %}">
+{% endcompress %}
+
+    <!-- Twitter Bootstrap Max Length-->
+    <script src="{% static 'bootstrap-maxlength/src/bootstrap-maxlength.js' %}"></script>
+
+    <!-- Twitter Bootstrap Select -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-select/dist/css/bootstrap-select.min.css' %}">
+{% endcompress %}
+    <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+
+    <!-- Twitter Bootstrap Slider -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css' %}">
+{% endcompress %}
+    <script type="text/javascript" charset="utf-8" src="{% static 'seiyria-bootstrap-slider/dist/bootstrap-slider.min.js' %}"></script>
+
+    <!-- Twitter Bootstrap Tags Input -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-tagsinput/dist/bootstrap-tagsinput.css' %}">
+{% endcompress %}
+    <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js' %}"></script>
+
+    <!-- Font Awesome -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+{% endcompress %}
+
+    <!-- Font Flat Icon -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fonts/flaticon/flaticon.css">
+{% endcompress %}
+
+    <!-- Social Buttons -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-social-buttons/social-buttons-3.css' %}">
+{% endcompress %}
+
+    <!-- jQuery ColorBox -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'jquery-colorbox/example3/colorbox.css' %}">
+{% endcompress %}
+    <script type="text/javascript" charset="utf-8" src="{% static 'jquery-colorbox/jquery.colorbox-min.js' %}"></script>
+
+    <!-- jQuery Tablesorter -->
+    <script type="text/javascript" charset="utf-8" src="{% static 'tablesorter/jquery.tablesorter.js' %}"></script>
+
+    <!-- jQuery Input Mask -->
+    <script type="text/javascript" charset="utf-8" src="{% static 'jquery.inputmask/dist/jquery.inputmask.bundle.js' %}"></script>
+
+    <!-- jQuery Scroll to Top -->
+{% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'jquery-scrolltotop/dist/jquery.scrolltotop.min.css' %}" />
+{% endcompress %}
+    <script type="text/javascript" charset="utf-8" src="{% static 'jquery-scrolltotop/dist/jquery.scrolltotop.min.js' %}"></script>
+
+    <!-- jQuery Smooth Scroll -->
+    <script type="text/javascript" charset="utf-8" src="{% static 'smooth-scroll.js/dist/js/smooth-scroll.min.js' %}"></script>
+
+    <!-- jQuery Sticky -->
+    <script type="text/javascript" charset="utf-8" src="{% static 'jquery-sticky/jquery.sticky.js' %}"></script>
+
+    <!-- jQuery Noty -->
+    <script type="text/javascript" charset="utf-8" src="{% static 'noty/js/noty/packaged/jquery.noty.packaged.min.js' %}"></script>
+
+    <!-- Custom -->
+    <script type="text/javascript" src="{% static 'js/webbook.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/editor.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.youtubepopup.min.js' %}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 7]>
+    <style type="text/css">
+        #wrapper { height: 100%; }
+    </style>
+    <![endif]-->
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+
+        ga("create", "UA-57505717-2", "auto");
+        ga("send", "pageview");
+    </script>

@@ -1,0 +1,450 @@
+// ----------------------------------------------------------------------------
+// GRADIENTS
+// ----------------------------------------------------------------------------
+#gradient {
+    // Horizontal gradient, from left to right
+    .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+        background-image:        -webkit-gradient(linear, @start-percent top, @end-percent top, from(@start-color), to(@end-color));
+        background-image: -webkit-linear-gradient(left, color-stop(@start-color @start-percent), color-stop(@end-color @end-percent));
+        background-image:    -moz-linear-gradient(left, @start-color @start-percent, @end-color @end-percent);
+        background-image:         linear-gradient(to right, @start-color @start-percent, @end-color @end-percent);
+        background-repeat: repeat-x;
+        filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color)));
+    }
+
+    // Vertical gradient, from top to bottom
+    .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+        background-image:        -webkit-gradient(linear, left @start-percent, left @end-percent, from(@start-color), to(@end-color));
+        background-image: -webkit-linear-gradient(top, @start-color, @start-percent, @end-color, @end-percent);
+        background-image:    -moz-linear-gradient(top, @start-color @start-percent, @end-color @end-percent);
+        background-image:         linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10
+        background-repeat: repeat-x;
+        filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color)));
+    }
+
+    .directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+        background-repeat: repeat-x;
+        background-image: -webkit-linear-gradient(@deg, @start-color, @end-color);
+        background-image:    -moz-linear-gradient(@deg, @start-color, @end-color);
+        background-image:         linear-gradient(@deg, @start-color, @end-color);
+    }
+    .horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+        background-image:        -webkit-gradient(left, linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+        background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+        background-image:    -moz-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
+        background-image:         linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
+        background-repeat: no-repeat;
+        filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color)));
+    }
+    .vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+        background-image:        -webkit-gradient(linear, 0 0, 0 100%, from(@start-color), color-stop(@color-stop, @mid-color), to(@end-color));
+        background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+        background-image:    -moz-linear-gradient(top, @start-color, @mid-color @color-stop, @end-color);
+        background-image:         linear-gradient(@start-color, @mid-color @color-stop, @end-color);
+        background-repeat: no-repeat;
+        filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color)));
+    }
+    .radial(@inner-color: #555; @outer-color: #333) {
+        background-image:        -webkit-gradient(radial, center center, 0, center center, 460, from(@inner-color), to(@outer-color));
+        background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
+        background-image:    -moz-radial-gradient(circle, @inner-color, @outer-color);
+        background-image:         radial-gradient(circle, @inner-color, @outer-color);
+        background-repeat: no-repeat;
+    }
+    .striped(@color: #555; @angle: 45deg) {
+        background-image:        -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+        background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+        background-image:    -moz-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+        background-image:         linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    }
+}
+
+// Reset filters for IE
+// When you need to remove a gradient background, do not forget to use this to reset the IE filter for IE9 and below.
+.reset-filter() {
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+// ----------------------------------------------------------------------------
+//
+// ----------------------------------------------------------------------------
+.font-style-mixin(@font-color: inherit, @font-size: inherit, @font-weight: normal) {
+    color:                  @font-color;
+    font-size:              @font-size;
+    font-weight:            @font-weight;
+    text-shadow:            1px 1px 2px @gray;
+}
+
+.placeholder-style(@style) {
+              &:-moz-placeholder  { font-style: @style; } // Firefox 4-18
+             &::-moz-placeholder  { font-style: @style; } // Firefox 19+
+         &:-ms-input-placeholder  { font-style: @style; } // Internet Explorer 10+
+    &::-webkit-input-placeholder  { font-style: @style; } // Safari and Chrome
+}
+
+.circle(@radius, @background-color, @border-color: @white, @border: 0.0) {
+    width:                  (@radius * 2);
+    height:                 (@radius * 2);
+    border-radius:          @radius;
+    border:                 @border-color solid (@radius * @border);
+    line-height:            (@radius * 2);
+    text-align:             center;
+    background:             @background-color;
+}
+
+// ----------------------------------------------------------------------------
+// FORM FIELDS
+// ----------------------------------------------------------------------------
+.pb-input-text(@color: @gray, @width: 100%, @height: 30px, @bgcolor: @white, @bdcolor: @gray-light) {
+    color:                  @color;
+    width:                  @width;
+    height:                 @height;
+    background-color:       @bgcolor;
+    border:                 1px solid @bdcolor;
+    border-radius:          4px;
+    padding:                4px;
+
+    .placeholder-style(italic);
+}
+
+.pb-input-group-addon(@color: @gray, @bgcolor: @white, @bdcolor: @gray-light) {
+    color:                  @color;
+    background-color:       @bgcolor;
+    border:                 1px solid @bdcolor;
+    padding:                4px;
+}
+
+.pb-input-submit(@color: @white, @font-size: @font-size-tiny, @font-weight: bold, @width: 100%, @height: 30px, @bgcolor: rgb(94, 146, 213), @bdcolor: @gray-light, @ptop: 2px, @pright: 2px, @pbottom: 2px, @pleft: 2px) {
+    color:                  @color;
+    font-size:              @font-size;
+    font-weight:            @font-weight;
+    width:                  @width;
+    height:                 @height;
+    background-color:       @bgcolor;
+    border:                 1px solid @bdcolor;
+    padding:                @ptop @pright @pbottom @pleft;
+    text-transform:         uppercase;
+    overflow-x:             hidden;
+}
+
+.pb-input-radio(@width: auto, @height: auto, @margin: 5px) {
+    width:                  @width;
+    height:                 @height;
+    margin:                 @margin;
+}
+
+.pb-input-checkbox(@width: auto, @height: auto, @margin: 5px) {
+    width:                  @width;
+    height:                 @height;
+    margin:                 @margin;
+}
+
+.pb-label-checkbox(@display: block, @font-weight: normal, @width: 100%, @pleft: 0) {
+    display:                @display;
+    font-weight:            @font-weight;
+    width:                  @width;
+    padding-bottom:         5px;
+    padding-left:           @pleft;
+}
+
+.pb-textarea(@color: @gray, @width: 100%, @height: 150px, @bgcolor: @white, @bdcolor: @gray-light, @resize: vertical) {
+    color:                  @color;
+    width:                  @width;
+    height:                 @height;
+    min-height:             @height;
+    background-color:       @bgcolor;
+    border:                 1px solid @bdcolor;
+    border-radius:          4px;
+    padding:                2px;
+    resize:                 @resize;
+
+    .placeholder-style(italic);
+}
+
+.pb-select(@color: @gray, @width: 100%, @height: 30px, @bgcolor: @white, @bdcolor: @gray-light) {
+    color:                  @color;
+    width:                  @width;
+    height:                 @height;
+    background-color:       @bgcolor;
+    border:                 1px solid @bdcolor;
+    border-radius:          4px;
+    padding:                3px 6px;
+    margin-bottom:          0;
+}
+
+.pb-form-group-horiz() {
+    label {
+        display:            inline-block;
+        width:              19%;
+        padding-top:        5px;
+    }
+    input, textarea {
+        display:            inline-block;
+        width:              80%;
+        float:              right;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// SOCIAL WIDGET
+// ----------------------------------------------------------------------------
+.pb-socials(@color: @gray-light, @font-size: @font-size-h2, @bgcolor: @white, @ptop: 0, @pright: 0, @pbottom: 0, @pleft: 0) {
+    a {
+        color:              @color;
+        font-size:          @font-size;
+
+        i {
+            padding:        @ptop @pright @pbottom @pleft;
+        }
+
+        span.fa-stack {
+            font-size:      @font-size;
+            width:          1em;
+            height:         1em;
+            line-height:    1em;
+        }
+
+        &.facebook {
+            .fa-square {
+                color:      @bgcolor;
+            }
+            .fa-facebook-square {
+                color:      @color;
+            }
+
+            &:hover {
+                color:      @brand-facebook;
+
+                .fa-square {
+                    color:  @color;
+                }
+                .fa-facebook-square {
+                    color:  @brand-facebook;
+                }
+            }
+        }
+
+        &.twitter {
+            .fa-square {
+                color:      @bgcolor;
+            }
+            .fa-twitter-square {
+                color:      @color;
+            }
+
+            &:hover {
+                color:      @brand-twitter;
+
+                .fa-square {
+                    color:  @color;
+                }
+                .fa-twitter-square {
+                    color:  @brand-twitter;
+                }
+            }
+        }
+
+        &.linkedin {
+            .fa-square {
+                color:      @bgcolor;
+            }
+            .fa-linkedin-square {
+                color:      @color;
+            }
+
+            &:hover {
+                color:      @brand-linkedin;
+
+                .fa-square {
+                    color:  @color;
+                }
+                .fa-linkedin-square {
+                    color:  @brand-linkedin;
+                }
+            }
+        }
+
+        &.google {
+            .fa-square {
+                color:      @bgcolor;
+            }
+            .fa-google-plus-square {
+                color:      @color;
+            }
+
+            &:hover {
+                color:      @brand-google-plus;
+
+                .fa-square {
+                    color:  @color;
+                }
+                .fa-google-plus-square {
+                    color:  @brand-google-plus;
+                }
+            }
+        }
+
+        &.pinterest {
+            .fa-square {
+                color:      @bgcolor;
+            }
+            .fa-pinterest-square {
+                color:      @color;
+            }
+
+            &:hover {
+                color:      @brand-pinterest;
+
+                .fa-square {
+                    color:  @color;
+                }
+                .fa-pinterest-square {
+                    color:  @brand-pinterest;
+                }
+            }
+        }
+
+        &.tumblr {
+            .fa-square {
+                color:      @bgcolor;
+            }
+            .fa-tumblr-square {
+                color:      @color;
+            }
+
+            &:hover {
+                color:      @brand-tumblr;
+
+                .fa-square {
+                    color:  @color;
+                }
+                .fa-tumblr-square {
+                    color:  @brand-tumblr;
+                }
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+// TWITTER FEED
+// ----------------------------------------------------------------------------
+.pb-twitter-feed(@font-size: @font-size-base) {
+    p {
+        font-size:          @font-size;
+        text-transform:     none;
+
+        &.user-name {
+            font-size:      @font-size-base;
+            font-weight:    bold;
+
+            i {
+                color:          @white;
+                margin-right:   5px;
+
+                .circle(
+                    @font-size-base,
+                    @brand-twitter
+                );
+            }
+        }
+        &.content {}
+        &.posted-at {
+            font-style:     italic;
+        }
+    }
+}
+
+// ----------------------------------------------------------------------------
+// PAGINATION
+// ----------------------------------------------------------------------------
+.pb-pagination() {
+    font-size:              @font-size-h4;
+    width:                  100%;
+    display:                inline-block;
+
+    .previous {
+        float:              left;
+    }
+    .current {
+        text-align:         center;
+    }
+    .next {
+        float:              right;
+    }
+    a.disabled {
+        color:              @gray-light;
+        cursor:             default;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// BUTTONS
+// ----------------------------------------------------------------------------
+.pb-big-button(@color: @white, @font-size: @font-size-small, @font-weight: bold, @text-align: center, @bgcolor: rgb(94, 146, 213), @bdcolor: @gray-light, @width: auto, @height: 36px, @ptop: 6px, @pright: 12px, @pbottom: 6px, @pleft: 12px, @mtop: 0, @mright: 0, @mbottom: 0, @mleft: 0) {
+    color:                  @color;
+    font-size:              @font-size;
+    font-weight:            @font-weight;
+    text-align:             @text-align;
+    text-transform:         uppercase;
+
+    width:                  @width;
+    height:                 @height;
+    padding:                @ptop @pright @pbottom @pleft;
+    margin:                 @mtop @mright @mbottom @mleft;
+
+    background-color:       @bgcolor;
+    border:                 1px @bdcolor solid;
+
+    &:hover {
+        background-color:   darken(@bgcolor, 10%);
+    }
+}
+
+.pb-big-rounded-button(@color: @white, @font-size: @font-size-small, @font-weight: bold, @text-align: center, @bgcolor: rgb(94, 146, 213), @bdcolor: @gray-light, @width: auto, @height: 36px, @ptop: 6px, @pright: 12px, @pbottom: 6px, @pleft: 12px, @mtop: 0, @mright: 0, @mbottom: 0, @mleft: 0) {
+    color:                  @color;
+    font-size:              @font-size;
+    font-weight:            @font-weight;
+    text-align:             @text-align;
+    text-transform:         uppercase;
+
+    width:                  @width;
+    height:                 @height;
+    padding-top:            (@height - @font-size) / 4 - 1;
+    padding-bottom:         (@height - @font-size) / 4 + 1;
+    padding-left:           (@height - @font-size) / 4;
+    padding-right:          (@height - @font-size) / 4;
+    margin:                 @mtop @mright @mbottom @mleft;
+
+    background-color:       @bgcolor;
+    border:                 1px @bdcolor solid;
+    border-radius:          @height / 2;
+
+    i {
+        color:              @bgcolor;
+        margin-right:       5px;
+
+        .circle(
+            @radius:            @font-size,
+            @background-color:  @color,
+            @border-color:      @color,
+            @border:            0.0
+        );
+    }
+
+    &:hover {
+        background-color:   darken(@bgcolor, 10%);
+    }
+}
+
+// ----------------------------------------------------------------------------
+// BOX
+// ----------------------------------------------------------------------------
+.pb-box(@width: auto, @height: auto, @display: inherit, @bdcolor: @gray-lighter, @ptop: 20px, @pright: 20px, @pbottom: 20px, @pleft: 20px, @mtop: 0, @mright: 0, @mbottom: 0, @mleft: 0) {
+    width:                  @width;
+    height:                 @height;
+    padding:                @ptop @pright @pbottom @pleft;
+    margin:                 @mtop @mright @mbottom @mleft;
+
+    border:                 1px solid @bdcolor;
+}

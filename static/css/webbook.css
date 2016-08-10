@@ -1,0 +1,636 @@
+/**
+Grays:
+    #303030
+    #909090
+    #adadad
+    #ebebeb
+
+ */
+
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+/** Typography **/
+
+body {
+    font-family:Raleway, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    overflow-y: scroll;
+    color: #fff;
+}
+a {
+    color: #333;
+}
+a:hover,
+a:focus {
+    color: #06c;
+}
+p, ol, ul {
+    margin: 1em 0;
+}
+a.appendix_link{text-decoration:underline;color:#06c}
+a.appendix_link:hover {
+color: #06c;
+}
+
+.book-title {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 0.75em;
+}
+.book-title > a {
+    color: #fff !important;
+    text-decoration: none;
+}
+.book-title > a:hover {
+    color: #005580;
+}
+.book-author {
+    color: #eaeaea;
+    font-size: 1em;
+    font-weight: normal;
+    margin-top: -1em;
+}
+
+
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+}
+
+
+
+
+@media all and (min-width: 600px) {
+    .inner-navigation > ul {
+        list-style: none;
+        padding: 0;
+        margin: 0.75em 0;
+    }
+    .inner-navigation > ul > li {
+        display: inline-block;
+        margin: 0.25em 1em 0.25em 0;
+    }
+    .inner-navigation > ul > li > a {
+        white-space: nowrap;
+    }
+
+}
+
+/** Utils **/
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+
+/** Buttons **/
+.buy_buttons{text-align:center}
+.default-button {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 20px;
+    text-decoration: none;
+}
+.default-button:active,
+.default-button:focus,
+.default-button:hover {
+    color: #333;
+    background-color: #ebebeb;
+    border-color: #adadad;
+    text-decoration: none;
+}
+
+.delete-button {
+    color: #ffffff;
+    background: #cc0000;
+    border: 1px solid #cc3333;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 5px 20px;
+}
+.delete-button:active,
+.delete-button:focus,
+.delete-button:hover {
+    background: #cc3333;
+    text-decoration: none;
+}
+.submit-button {
+    color: #FFFFFF;
+    background-color: #469cce;
+    border: 1px solid #393984;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 20px;
+}
+.submit-button:active,
+.submit-button:focus,
+.submit-button:hover {
+    background-color: #469cce;
+    border-color: #393984;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+/** Forms **/
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+select {
+    color: #469cce;
+    width: 200px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+.form-horizontal .form-group {
+    clear: both;
+    margin: 0.5em 0;
+}
+.form-horizontal .control-label {
+    padding-top: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+    float: left;
+    width: 200px;
+}
+.form-horizontal .controls{
+    display: block;
+    margin-left: 220px;
+}
+
+.inline-p-form > p > label {
+    font-size: 14px;
+    margin-right: 5px;
+}
+.standard-p-form > p   {
+    clear: both;
+    margin: 1em 0;
+}
+.standard-p-form > p > label {
+    display: block;
+    font-size: 14px;
+    margin: 0;
+}
+.standard-p-form > p > input {
+    display: block;
+}
+.horizontal-p-form > p > label {
+    display: inline-block;
+    min-width: 150px;
+    padding-right: 5px;
+    text-align: right;
+}
+.horizontal-p-form > p.submit-row {
+    padding-left: 155px;
+}
+
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+}
+
+/** Widgets **/
+
+.progress-wrapper label {
+    color: #cfcfcf;
+}
+.progress-bar {
+    background-color: #999999;
+}
+
+
+/** Page Layout **/
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 600px;
+
+}
+
+/** Page Header **/
+
+/** Page messages **/
+.page-messages-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+}
+.page-messages-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.page-messages-item.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.page-messages-item.info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.page-messages-item.warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.page-messages-item.error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+/** Youtube Popup **/
+.youtube-modal-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #000000;
+}
+.youtube-modal-wrapper iframe {
+    position: absolute;
+    border: 0;
+    width: 80%;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    height: 80%;
+}
+.youtube-modal-header {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 19px;
+    line-height: 1;
+}
+
+/** Home **/
+
+/** Login and Register **/
+
+.login-form {
+    width: 45%;
+    float: right;
+}
+.login-form > .submit-row {
+    width: 226px;
+    text-align: right;
+}
+.login-form > .footer-row {
+    font-size: 13px;
+    width: 226px;
+    text-align: right;
+}
+
+.register-form {
+    width: 45%;
+    float: left;
+}
+.register-form > .legal-note {
+    font-size: 11px;
+    font-style: italic;
+    text-align: right;
+    width: 226px;
+}
+.register-form > .legal-note > a {
+    text-decoration: none;
+}
+.register-form > .submit-row {
+    text-align: right;
+    width: 226px;
+}
+
+/** Sending Message **/
+#send-message-dialog .modal-body {
+    padding: 0;
+    margin: 20px;
+}
+#send-message-dialog textarea {
+    width: 100%;
+    height: 8em;
+}
+
+/** Sending Message **/
+#claim-code-dialog .modal-body {
+        padding: 0;
+        margin: 20px;
+}
+#claim-code-dialog textarea {
+        width: 100%;
+        height: 8em;
+}
+
+/** Book Overview **/
+.book-progress .progress {
+    height: 23px;
+
+}
+.progress {
+    max-width: 400px;
+}
+.book-group {
+    padding: 1em 0;
+    border-top: 1px solid #ebebeb;
+}
+.book-group:first-child {
+    border-top: 0;
+}
+.book-group .dropdown-menu {
+    font-size: 13px;
+}
+.group-member {
+    font-size: 0.9em;
+    margin: 1em 0;
+    max-width: 400px;
+}
+.group-member label {
+    color: #303030;
+}
+.group-member .progress-wrapper {
+    margin: 0.25em 0;
+}
+.group-member .progress {
+    height: 16px;
+}
+.group-member .group-message {
+    float: right;
+}
+.group-header h3 {
+    float: left;
+    margin: 0;
+    line-height: 24px;
+}
+.group-header .dropdown {
+    float: left;
+    margin-left: 40px;
+}
+.group-header .dropdown .dropdown-toggle {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('images/gear-24.png') center center no-repeat;
+    cursor: pointer;
+}
+
+/** Workbook Page **/
+.book-page-wrapper .warning-message {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border: 1px solid #faebcc;
+    border-radius: 4px;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.book-page-wrapper a {
+    color:#06c;
+}
+.book-page-wrapper .warning-message > a {
+    color: #8a6d3b;
+    font-weight: bold;
+}
+
+
+.book-page-wrapper .submit-page-buttons {
+    text-align: right;
+}
+.book-display .textarea-item > textarea {
+    font-family: inherit;
+    font-size: 16px;
+    border: 2px solid #909090;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
+    padding: 10px;
+}
+
+.book-display .radio-item > label {
+    margin-right: 10px;
+}
+.book-display .footnotes {
+    color: #707070;
+    font-size: smaller;
+    margin-top: 40px;
+}
+
+/** Workbook Certificate **/
+.certificate {
+    position: relative;
+    margin: auto;
+    color: #333;
+}
+.certificate-image {
+    width: 100%;
+    height: auto;
+}
+.certificate-name {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: serif;
+    line-height: 1;
+    margin-top: -0.5em;
+    text-align: center;
+}
+.certificate-screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.certificate-tools {
+    clear: both;
+    margin: 1em 0;
+    text-align: right;
+}
+
+/** Export **/
+
+.book-export-form label {
+    display: block;
+}
+.book-export-form select {
+    width: 300px;
+}
+
+/** Store Purchase **/
+
+.store-discounts-wrapper .book-cover {
+    width: 200px;
+    height: auto;
+    float: left;
+    margin-right: 20px;
+}
+.store-discounts-wrapper .book-item {
+    overflow: hidden;
+}
+.store-discounts-wrapper .book-links {
+    margin-top: 1em;
+    margin-left: 280px;
+}
+.store-discounts-wrapper .book-prices {
+    width: 240px;
+}
+.store-discounts-wrapper .book-prices th {
+    padding: 5px 10px;
+}
+.store-discounts-wrapper .book-prices td {
+    padding: 5px 10px;
+    border-top: 1px solid #c0c0c0;
+}
+
+
+
+.store-discounts-buy-wrapper .book-prices {
+    margin: 1em 0 40px 0;
+}
+.store-discounts-buy-wrapper .book-prices th {
+    padding: 3px 20px;
+}
+.store-discounts-buy-wrapper .book-prices td {
+    padding: 3px 20px;
+    border-top: 1px solid #c0c0c0;
+}
+
+.invoice-header {
+    font-size: 0.85em;
+}
+.invoice-header > dl {
+    margin: 1em 0;
+    padding: 0;
+    overflow: hidden;
+}
+.invoice-header > dl > dt {
+    float: left;
+    clear: both;
+    padding-right: 5px;
+}
+.invoice-header > dl > dd {
+    float: left;
+}
+.invoice-table {
+    clear: both;
+    border: 1px solid #e0e0e0;
+    border-collapse: collapse;
+    min-width: 400px;
+}
+.invoice-table td,
+.invoice-table th {
+    padding: 0.5em 1em;
+}
+.invoice-table thead th {
+    background: #e0e0e0;
+}
+.invoice-table tfoot td,
+.invoice-table tfoot th {
+    font-weight: bold;
+    border-top: 1px solid #f0f0f0;
+}
+
+
+
+@media all and (max-width: 440px) {
+    .certificate {
+        width: 320px;
+    }
+    .certificate-name {
+        font-size: 14px;
+    }
+}
+@media all and (min-width: 440px) {
+    .certificate {
+        width: 400px;
+    }
+    .certificate-name {
+        font-size: 17px;
+    }
+}
+@media all and (min-width: 640px) {
+    .certificate {
+        width: 600px;
+    }
+    .certificate-name {
+        font-size: 26px;
+    }
+}
+@media all and (min-width: 840px) {
+    .certificate {
+        width: 800px;
+    }
+    .certificate-name {
+        font-size: 34px;
+    }
+}
+
+
+
+/** Print **/
+@media print {
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    #page-top-nav {
+        display: none;
+    }
+    #page-wrapper {
+        margin: 0;
+        width: auto;
+    }
+    #page-footer {
+        display: none;
+    }
+    .certificate {
+        max-width: 800px;
+        width: 100%;
+        margin: auto;
+    }
+    .store-purchase-wrapper .default-button {
+        display: none;
+    }
+
+}

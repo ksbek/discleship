@@ -1,0 +1,32 @@
+{% load i18n %}
+{% load static %}
+
+<div class="modal fade" id="send-message-dialog" tabindex="-1" role="dialog" aria-labelledby="send-message-dialog-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="send-message-dialog-title">{% trans "Send Message" %}</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="alert" style="display: none;">
+                </div>
+
+                <form id="send-group-message-modal-form" method="POST" action="{% url 'group-message' %}">
+                    {% csrf_token %}
+
+                    <p><label>{% trans "To" %}:</label> <span class="recipient-name"></span></p>
+                    <p><textarea name="text"placeholder="{% trans 'Enter your message here' %}" ></textarea></p>
+                    <input type="hidden" name="user_id" value="" />
+                    <input type="hidden" name="group_id" value="" />
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                <button type="button" class="btn btn-primary">{% trans "Send" %}</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

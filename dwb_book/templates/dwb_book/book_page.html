@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block extra_head %}
+    <style type="text/css">
+        {{ book.get_style|safe }}
+    </style>
+{% endblock %}
+
+{% block content %}
+<div id="book-page-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1><a href="{% url 'book-overview' book_slug=book.slug %}">{{ book.title }}</a></h1>
+
+                <p>{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="book-page-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                {% if first_item.item_type != "h1" %}
+                    <h1 class="chapter-title">{{ chapter_title }}</h1>
+                {% endif %}
+
+                    <div class="controllers">
+                    {% if has_inputs and user.is_authenticated %}
+                        <button type="submit" name="action" value="continue" class="btn btn-default">{% trans "Save" %} &amp; {% trans "Continue" %}</button>
+                        <button type="submit" name="action" value="save" class="btn btn-default">{% trans "Save" %}</button>
+                        <button type="button" name="toc" value="toc" class="btn btn-default" onclick="window.location.href='{% url 'book-toc' book_slug=book.slug %}'">{% trans "Table of Contents" %}</button>
+                    {% else %}
+                        <button type="submit" name="action" value="continue" class="btn btn-default">{% trans "Continue" %}</button>
+                    {% endif %}
+                    </div>
+
+                    <div class="book-display">
+                    {% for item in items %}
+                        {% include "dwb_book/book_page_item.html" %}
+                    {% endfor %}
+                    </div>
+
+                {% if not user.is_authenticated %}
+                    <div class="alert alert-danger">
+                        {% trans "You are not logged in so your progress will not be saved." %} <a href="{% url 'login' %}">{% trans "Log in" %}</a> {% trans "or" %} <a href="{% url 'register' %}">{% trans "register" %}</a> {% trans "for free." %}
+                    </div>
+                {% endif %}
+
+                    <div class="controllers">
+                    {% if has_inputs and user.is_authenticated %}
+                        <button type="submit" name="action" value="continue" class="btn btn-default">{% trans "Save" %} &amp; {% trans "Continue" %}</button>
+                        <button type="submit" name="action" value="save" class="btn btn-default">{% trans "Save" %}</button>
+                        <button type="button" name="toc" value="toc" class="btn btn-default" onclick="window.location.href='{% url 'book-toc' book_slug=book.slug %}'">{% trans "Table of Contents" %}</button>
+                    {% else %}
+                        <button type="submit" name="action" value="continue" class="btn btn-default">{% trans "Continue" %}</button>
+                    {% endif %}
+                    </div>
+                </form>
+
+            {% if footnotes %}
+                <div class="footnotes">
+                    {{ footnotes|safe }}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+[
+  {
+    "model": "dwb_book.Item",
+    "pk": 10,
+    "fields": {
+       "book": 1,
+       "item_type": "h1",
+       "title": "Introduction",
+       "_order": 0
+    }
+  },
+  {
+    "model": "dwb_book.Item",
+    "pk": 11,
+    "fields": {
+       "book": 1,
+       "item_type": "h2",
+       "intro": "intro_to_welcome",
+       "title": "Welcome!",
+       "content": "Welcome! [FACT FILE]",
+       "_order": 1
+    }
+  },
+  {
+    "model": "dwb_book.Item",
+    "pk": 12,
+    "fields": {
+       "book": 1,
+       "item_type": "text",
+       "title": "Welcome to our first",
+       "content": "Welcome to our first book",
+       "footnotes" : "1. First footnote",
+       "_order": 2
+    }
+  },
+  {
+    "model": "dwb_book.Item",
+    "pk": 13,
+    "fields": {
+       "book": 1,
+       "item_type": "h2",
+       "title": "Chapter 1",
+       "content": "",
+       "_order": 3
+    }
+  },
+  {
+    "model": "dwb_book.Item",
+    "pk": 14,
+    "fields": {
+       "book": 1,
+       "item_type": "textarea",
+       "title": "Type in...",
+       "content": "Type in what you like :)",
+       "_order": 4
+    }
+  },
+  {
+    "model": "dwb_book.Item",
+    "pk": 15,
+    "fields": {
+       "book": 1,
+       "item_type": "boolean",
+       "title": "boolean question...",
+       "content": "Yes or no?",
+       "_order": 5
+    }
+  },
+  {
+    "model": "dwb_book.Item",
+    "pk": 16,
+    "fields": {
+       "book": 1,
+       "item_type": "radio",
+       "title": "select one...",
+       "content": "select one answer:",
+       "data": "yes \n no \n maybe",
+       "_order": 6
+    }
+  },
+  {
+    "model": "dwb_book.Item",
+    "pk": 17,
+    "fields": {
+       "book": 1,
+       "item_type": "h1",
+       "title": "Appendix 1",
+       "content": "",
+       "data": "",
+       "_order": 7
+    }
+  }
+]

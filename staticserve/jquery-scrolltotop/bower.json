@@ -1,0 +1,24 @@
+{
+  "name": "jquery-scrolltotop",
+  "homepage": "https://github.com/fater/jquery-scrolltotop",
+  "authors": [
+		"'Chaikin Evgenii <'fat_hack@rambler.ru'>"
+  ],
+	"description": "jQuery Scroll To Top Plugin",
+  "main": "jquery.scrolltotop.js",
+  "moduleType": [],
+  "keywords": [
+		"scrolltotop"
+  ],
+  "license": "CC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+	"dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

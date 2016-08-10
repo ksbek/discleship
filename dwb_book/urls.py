@@ -1,0 +1,40 @@
+from django.conf.urls import patterns, include, url
+
+from dwb_book.views import *
+
+
+urlpatterns = [
+    url(r"^(?P<book_slug>[-\w+]+)/$",
+        book_overview,
+        name="book-overview"),
+    url(r"^(?P<book_slug>[-\w+]+)/certificate/",
+        book_certificate_print,
+        name="book-certificate-print"),
+    url(r"^(?P<book_slug>[-\w+]+)/export-certificate/",
+        book_certificate_export,
+        name="book-certificate-export"),
+    url(r"^(?P<book_slug>[-\w+]+)/congratulations/",
+        book_congratulations,
+        name="book-congratulations"),
+    url(r"^(?P<book_slug>[-\w+]+)/delete/",
+        book_copy_delete,
+        name="book-copy-delete"),
+    url(r"^(?P<book_slug>[-\w+]+)/export/",
+        book_export,
+        name="book-export"),
+    url(r"^(?P<book_slug>[-\w+]+)/resume/$",
+        book_resume,
+        name="book-resume"),
+    url(r"^(?P<book_slug>[-\w+]+)/table-of-content/$",
+        book_toc,
+        name="book-toc"),
+    url(r"^(?P<book_slug>[-\w+]+)/(?P<index>\d+)/",
+        book_page,
+        name="book-page"),
+    url(r"^(?P<book_slug>[-\w+]+)/purchase/$",
+        book_purchase_to_continue,
+        name="book-purchase-to-continue"),
+    url(r"^(?P<book_slug>[-\w+]+)/sponsor/(?P<group_id>[\d]+)/$",
+        book_sponsor,
+        name="book-sponsor"),
+]

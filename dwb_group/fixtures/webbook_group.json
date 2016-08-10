@@ -1,0 +1,22 @@
+[
+  {
+    "model": "dwb_group.Group",
+    "pk": 1,
+    "fields": {
+      "name": "Cats",
+      "creator": 1,
+      "book": 1,
+      "date_started" : "2013-01-02 1:00:00Z"
+    }
+  },
+  {
+    "model": "dwb_group.Group",
+    "pk": 2,
+    "fields": {
+      "name": "Mouses",
+      "creator": 2,
+      "book": 1,
+      "date_started" : "2013-01-02 1:00:00Z"
+    }
+  }
+]

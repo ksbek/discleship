@@ -1,0 +1,62 @@
+{% extends "base_editor.html" %}
+
+{% load i18n %}
+
+{% block extra_head %}
+    <style type="text/css">
+        {{ book.get_style|safe }}
+    </style>
+{% endblock %}
+
+{% block content %}
+<div id="editor-chapter-preview-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>{{ book.title }}</h1>
+
+                <p>{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</p>
+
+                <div class="inner-navigation">
+                    <ul>
+                        <li><a href="{% url 'editor-book' book_id=book.id %}">{% trans "Book Overview" %}</a><li></li>
+                        <li><a href="{% url 'editor-chapter' book_id=book.id item_id=first_item.id %}">{% trans "Chapter Overview" %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="editor-chapter-preview-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="editor-preview-chapter-wrapper book-display">
+                    <div class="editor-header">
+
+                    </div>
+
+                    <div class="preview-wrapper">
+                    {% for item in items %}
+                        <div class="item-wrapper">
+                            <a href="{% url 'editor-item' book_id=book.id item_id=item.id %}" class="edit-link">{% trans "Edit" %}</a>
+
+                            {% include "dwb_book/book_page_item.html" %}
+                        </div>
+                    {% endfor %}
+
+                    {% if footnotes %}
+                        <div class="footnotes">
+                            {{ footnotes|safe }}
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

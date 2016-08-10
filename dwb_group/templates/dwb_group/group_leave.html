@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="group-leave" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>Leave Group</h1>
+
+                <p>
+                {% blocktrans with name=group.name %}
+                    Are you sure you want to leave "{{ name }}". You will not be able to join again unless you get a new invite.
+                {% endblocktrans %}
+                </p>
+
+                <form id="leave-group-form" action="" method="post">
+                    {% csrf_token %}
+
+                    <button type="submit" class="btn btn-danger">{% trans "Yes, leave this group" %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

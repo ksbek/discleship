@@ -1,0 +1,56 @@
+{% load i18n %}
+
+<nav>
+    <div class="nav-logo">
+        <a href="{% url 'index' %}">
+        {% blocktrans %}
+            Discipleship <b>Workbooks</b>
+        {% endblocktrans %}
+        </a>
+    </div>
+
+    <div class="auth pull-right">
+        <form id="donate-form" class="form-inline pull-left" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_donations">
+            <input type="hidden" name="business" value="info@parentingministry.org">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="item_name" value="Discipleship Workbooks">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+        {% if LANGUAGE_CODE == "en" %}
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="{% trans 'PayPal - The safer, easier way to pay online!' %}">
+        {% elif LANGUAGE_CODE == "es" %}
+            <input type="image" src="https://www.paypalobjects.com/es_ES/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="{% trans 'PayPal - The safer, easier way to pay online!' %}">
+        {% else %}
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="{% trans 'PayPal - The safer, easier way to pay online!' %}">
+        {% endif %}
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+
+    {% if not request.path|slice:"10" == "/workbook/" %}
+        <form id="locale-form" class="form-inline pull-left" action="{% url 'set_language' %}" method="POST">
+            {% csrf_token %}
+
+            <select name="language" class="input-small" onchange="document.forms['locale-form'].submit();">
+            {% for lang in LANGUAGES %}
+                {% if lang.0 == LANGUAGE_CODE %}
+                    <option value="{{ lang.0 }}" selected="selected">{{ lang.1 }}</option>
+                {% else %}
+                    <option value="{{ lang.0 }}">{{ lang.1 }}</option>
+                {% endif %}
+            {% endfor %}
+            </select>
+            <input type="submit" class="btn-primary" value="change" style="display:none;" />
+        </form>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <strong class="page-username">{{ user.get_full_name }}</strong>
+        <a href="{% url 'my-account' %}">{% trans "My Account" %}</a> | <a href="{% url 'logout' %}">{% trans "Log Out" %}</a>
+        {% if user.is_staff %} | <a href="{% url 'admin-home' %}">{% trans "Admin" %}</a> | <a href="{% url 'editor-home' %}">{% trans "Editor" %}</a>
+        {% endif %}
+    {% else %}
+        <a href="{% url 'login' %}">{% trans "Log In" %}</a> | <a href="{% url 'register' %}">{% trans "Register" %}</a>
+    {% endif %}
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+{% load i18n %}
+{% load webbook %}
+
+<table class="invoice-table">
+    <thead>
+        <tr>
+            <th>{% trans "Product Name" %}</th>
+        {% if purchase.quantity != 1 %}
+            <th>{% trans "Quantity" %}</th>
+        {% endif %}
+            <th>{% trans "Price" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ purchase.book.title }}</td>
+        {% if purchase.quantity != 1 %}
+            <td>{{ purchase.quantity }}</td>
+        {% endif %}
+            <td>{{ purchase.price|price }}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>{% trans "Total" %}</th>
+        {% if purchase.quantity != 1 %}
+            <td></td>
+        {% endif %}
+            <td>{{ purchase.total_charge|price}}</td>
+        </tr>
+    </tfoot>
+</table>

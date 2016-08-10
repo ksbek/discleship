@@ -1,0 +1,162 @@
+body {
+    margin:                 0;
+    padding:                0;
+    height:                 100%;
+
+    background-color:       @white;
+
+    //-------------------------------------------------------------------------
+    //--- AJAX Spinner
+    //-------------------------------------------------------------------------
+    #spinner {
+        display:            none;
+        width:              100px;
+        height:             100px;
+        position:           fixed;
+        top:                50%;
+        left:               50%;
+        text-align:         center;
+        margin-left:        -50px;
+        margin-top:         -100px;
+        z-index:            9999;
+        overflow:           auto;
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Content Wrappers
+    //-------------------------------------------------------------------------
+    #wrapper {
+        position:           relative;
+        min-height:         100%;
+    }
+    #navbar {
+    }
+    #content {
+        min-height:         600px;
+    }
+    #footer {
+        position:           relative;
+        width:              100%;
+    }
+
+    .page-content-blue {
+        color:              @white;
+        padding:            5%;
+        padding-top:        20px;
+        padding-bottom:     20px;
+        background-color:   #329CCB;
+
+        a {
+            color:              @white;
+            text-decoration:    none;
+        }
+    }
+    .page-content-white {
+        padding:            5%;
+        padding-top:        20px;
+        padding-bottom:     20px;
+        background-color:   #FFF;
+        color:              #333;
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Inline vertical Delimiter
+    //-------------------------------------------------------------------------
+    .vert-delimiter {
+        margin:     0 10px;
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Control Buttons Section
+    //-------------------------------------------------------------------------
+    .controllers {
+        width:              100%;
+        display:            inline-block;
+        padding-bottom:     5px;
+
+        button {
+            float:          right;
+            margin:         0 5px;
+        }
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Buttons
+    //-------------------------------------------------------------------------
+    .start-button {
+        color:              @white;
+        background-color:   #469cce;
+        border:             1px solid #999;
+        border-radius:      2px;
+        display:            inline-block;
+        padding:            5px 20px;
+        text-decoration:    none;
+        width:              200px;
+        margin-left:        20px;
+        margin-right:       20px;
+        height:             50px;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color:   #FFF;
+            border-color:       #393984;
+            color:              #333;
+            text-decoration:    none;
+        }
+    }
+    .submit-button {
+        color:              @white;
+        background-color:   #469cce;
+        border:             1px solid #393984;
+        border-radius:      4px;
+        display:            inline-block;
+        font-weight:        bold;
+        text-decoration:    none;
+        padding:            5px 20px;
+
+        &:active,
+        &:focus,
+        &:hover {
+            color:              @white;
+            background-color:   #469cce;
+            border-color:       #393984;
+            text-decoration:    none;
+        }
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Share Social Buttons
+    //-------------------------------------------------------------------------
+    .social-buttons {
+        button {
+            display:            inline-block;
+            padding:            4px 6px;
+            margin-right:       5px;
+            margin-bottom:      5px;
+        }
+    }
+
+    //-------------------------------------------------------------------------
+    //--- Error Pages
+    //-------------------------------------------------------------------------
+    .page-404,
+    .page-500 {
+        display:            block;
+        margin:             0 auto;
+        clear:              right;
+        padding-top:        50px;
+    }
+}
+
+//-----------------------------------------------------------------------------
+//--- Make Design more responsive
+//-----------------------------------------------------------------------------
+@media (max-width: @screen-xs-max) {
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+}
+@media (min-width: @screen-lg-min) {
+}

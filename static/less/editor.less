@@ -1,0 +1,130 @@
+#editor-home-1,
+#editor-home-2 {
+    img {
+        width:                  200px;
+    }
+}
+
+#editor-book-1,
+#editor-book-2 {
+    .special-pages {
+        list-style:             none;
+    }
+    .books-headings {
+        list-style:             none;
+
+        > li {
+            padding-top:        0.5em;
+            padding-bottom:     0.5em;
+            border-bottom:      1px dashed #a0a0a0;
+
+            &:hover {
+                background:     #ffffc0;
+            }
+
+            .buttons-toolbar {
+                list-style:     none;
+                float:          right;
+                margin:         0;
+                padding:        0;
+
+                > li {
+                    display:    inline;
+
+                    &:before {
+                        content:    " | ";
+                    }
+                    &:first-child:before {
+                        content:    "";
+                    }
+                }
+            }
+        }
+    }
+}
+
+#editor-chapter-1,
+#editor-chapter-2 {
+    .books-items {
+        list-style:             none;
+        margin:                 40px 0;
+        padding:                0;
+        font-size:              14px;
+
+        > li {
+            padding:            0.5em 10px;
+            padding-left:       90px;
+            margin:             0;
+            border-bottom:      1px dashed #a0a0a0;
+
+            &.h1-item {
+                padding-left:   0px;
+                cursor:         default;
+            }
+            &.h2-item {
+                padding-left:   30px;
+            }
+            &.h3-item {
+                padding-left:   60px;
+            }
+            &:hover {
+                background:     #ffffc0;
+            }
+
+            .buttons-toolbar {
+                list-style:     none;
+                float:          right;
+                margin:         0;
+                padding:        0;
+
+                > li {
+                    display:    inline;
+
+                    &:before {
+                        content:    " | ";
+                    }
+                    &:first-child:before {
+                        content:    "";
+                    }
+                }
+            }
+        }
+    }
+}
+
+#editor-chapter-preview-1,
+#editor-chapter-preview-2 {
+
+}
+
+#editor-item-1,
+#editor-item-2 {
+
+}
+
+.inner-navigation {
+    line-height:                1;
+
+    > ul {
+        list-style:             outside none none;
+        padding:                0;
+        margin:                 1em 0;
+
+        > li {
+            display:            inline-block;
+            margin:             0.25em 1em 0.25em 0;
+
+            > a {
+                color:              @gray;
+                font-size:          @font-size-small;
+                text-decoration:    none;
+            }
+        }
+    }
+}
+.editor-section {
+    margin:                     20px 0;
+}
+.ui-sortable > li {
+    cursor:                     move;
+}

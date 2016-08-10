@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="group-create" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>{% trans "Create Group" %}</h1>
+
+                <p>{% trans "Create a group and invite your friends. You will be able to see each other's progress. Your answers will never be shown." %}</p>
+
+                <form id="create-group-form" action="" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-inline">
+                        <label>{{ create_form.name.label }}: </label> {{ create_form.name }}
+                        <button type="submit" class="submit-button">{% trans "Create" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

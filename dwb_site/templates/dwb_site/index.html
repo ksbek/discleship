@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="index-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="home-intro">
+                    <h1>{% trans "Welcome" %}</h1>
+                    <p>
+                        {% trans "Welcome to Discipleship Workbooks. The materials you will find here were tested by many others and found to bring success in three essentially important areas: establishing a daily, abiding relationship with Jesus while learning important foundational truths about the Christian faith; learning how to tend to your spouse as a husband and wife and building a strong, biblically based marriage; and how to raise children with love and proper discipline according to God's Word." %}
+                    </p>
+                    <p>
+                        {% trans "It is our prayer that as you learn and begin to work on these principles, you will share them with others. God’s commission to every believer is to be His disciples. With this call and commission upon our life, God will be faithful and provide us with His grace to see it through." %}
+                    </p>
+                </div>
+
+                <div class="home-videos">
+                {% spaceless %}
+                    {% if LANGUAGE_CODE == "en" %}
+                        <div>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=hP82cXqSZzM" style="color:#fff">
+                                <img src="{{ STATIC_URL }}img/play_button.png">
+                                {% trans "Welcome Video" %}
+                            </a>
+                        </div>
+
+                        <div>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=njMulLCSw9k" style="color:#fff">
+                                <img src="{{ STATIC_URL }}img/play_button.png">
+                                {% trans "Tutorial Video" %}
+                            </a>
+                        </div>
+                    {% elif LANGUAGE_CODE == "es" %}
+                        <div>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=KITO9TJMfyY" style="color:#fff">
+                                <img src="{{ STATIC_URL }}img/play_button.png">
+                                {% trans "Welcome Video" %}
+                            </a>
+                        </div>
+
+                        <div>
+                            <a class="youtube" href="https://www.youtube.com/watch?v=HwHd362iaM0" style="color:#fff">
+                                <img src="{{ STATIC_URL }}img/play_button.png">
+                                {% trans "Tutorial Video" %}
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endspaceless %}
+                </div>
+
+                <div class="home-download-instructions">
+                    <p>
+                    {% if LANGUAGE_CODE == "en" %}
+                        <a href="{{ STATIC_URL }}DWInstructions.pdf" style="color:#fff">{% trans "Download Instructions Here" %}</a>
+                    {% elif LANGUAGE_CODE == "es" %}
+                        <a href="{{ STATIC_URL }}DWInstructions_es.pdf" style="color:#fff">{% trans "Download Instructions Here" %}</a>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="index-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+            {% spaceless %}
+                <div class="books-to-buy">
+                {% for book in all_books %}
+                    <div class="book-item">
+                        <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="book-cover" />
+
+                        <div class="book-links">
+                        {% if book.status == "active" %}
+                            <a href="{% url 'register' %}" class="start-button" style="width:100px; height:30px;">{% trans "Get Started" %}</a>
+                            <a href="{% url 'book-toc' book_slug=book.slug %}" class="start-button" style="width:100px; height:30px;">{% trans "Preview" %}</a>
+                        {% else %}
+                            <span>{% trans "Coming Soon" %}</span>
+                        {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                    <div class="books-to-buy-footer">
+                    </div>
+                </div>
+            {% endspaceless %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

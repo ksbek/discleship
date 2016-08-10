@@ -1,0 +1,15 @@
+{% load i18n %}
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <ul>
+                    <li><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
+                    <li><a href="/contact/">{%trans "Contact" %}</a></li>
+                    <li><a href="/terms-of-service/">{% trans "Terms of Service" %}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

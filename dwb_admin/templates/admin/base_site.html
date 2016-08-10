@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+
+{% load i18n %}
+
+{% block title %}{{ title }} | Discipleship Workbooks{% endblock %}
+
+{% block branding %}
+    <style type="text/css">
+        #header {
+            background:     #0088cc;
+        }
+        #branding h1 {
+            color:          #ffffff;
+        }
+        .module h2, .module caption, .inline-group h2 {
+            background:     #66aacc;
+        }
+    </style>
+
+    <h1 id="site-name">{% trans "Workbook Admin" %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "webbook/base.html" %}
+
+{% load i18n %}
+{% load webbook %}
+
+{% block content %}
+    <div class="store-discounts-wrapper">
+        <h1 class="large-heading">{% trans "Discounts for Discipleship Workbook" %}</h1>
+
+        <p>{% trans "We offer quantity discounts to pastors and group leaders. This make it easier and more affordible for an entire group to use Discipleship Workbooks." %}</p>
+        <p>{% trans "Once you complete a purchase, you will be emailed a gift code. This singe gift code can be used mutliple times, as many times as was purchased. You can print this gift code, email it, or share it in person with your group." %}</p>
+
+    {% spaceless %}
+        <div class="book-list">
+        {% for book in books %}
+            <div class="book-item">
+                <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="book-cover"/>
+
+                <table class="book-prices">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Quantity" %}</th>
+                            <th>{% trans "Price per Unit" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for quantity, price in book.get_prices %}
+                        <tr>
+                            <td>{{ quantity }} {% trans "or more" %}</td>
+                            <td>{{ price|price }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="book-links">
+                    <a href="{% url 'dwb_discounts_buy' book_slug=book.slug %}" class="start-button">{% trans "Get Started" %}</a>
+                </div>
+            </div>
+        {% endfor %}
+            <div class="book-list-footer"></div>
+        </div>
+    {% endspaceless %}
+    </div>
+{% endblock %}

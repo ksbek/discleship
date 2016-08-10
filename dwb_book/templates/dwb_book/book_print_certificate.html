@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="book-print-certificate-wrapper">
+        {% include "dwb_book/book_certificate.html" %}
+    </div>
+
+    <style type="text/css">
+        #page-header {
+            display:    none;
+        }
+        #page-footer {
+            display:    none;
+        }
+    </style>
+
+    <style type="text/css" media="print">
+        @page {
+            size:       landscape;
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.print();
+    </script>
+{% endblock %}

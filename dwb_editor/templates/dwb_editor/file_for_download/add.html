@@ -1,0 +1,19 @@
+{% extends "dwb_editor/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="editor-item-wrapper">
+        <h2>{% trans "Add file for download" %}</h2>
+
+        <p>{% trans "Upload a file to" %} {{ book.title }}</p>
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <p><button type="submit" class="submit-button">{% trans "Submit" %}</button></p>
+        </form>
+    </div>
+{% endblock %}

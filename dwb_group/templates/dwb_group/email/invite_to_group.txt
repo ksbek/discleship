@@ -1,0 +1,18 @@
+{% load i18n %}
+
+{% blocktrans with recipient=invite.recipient_name sender=invite.sender_user.first_name group=invite.group.name book=invite.group.book.title message=invite_message url=invite_url %}
+
+Hello {{ recipient }},
+
+{{ sender }} invites you to join "{{ group }}" to work on "{{ book }}".
+
+{{ message }}
+
+Click the link bellow to see more information and to join the group.
+
+{{ url }}
+
+Sent by Discipleship Workbooks Team
+team@discipleshipworkbooks.com
+
+{% endblocktrans %}

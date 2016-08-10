@@ -1,0 +1,187 @@
+
+
+
+/** Inputs and Buttons **/
+
+input[type=text],
+input[type=number] {
+	padding: 5px;
+	border: 1px solid #707070;
+}
+
+
+.helptext {
+	font-weight: normal;
+	font-size: small;
+	font-style: italic;
+}
+
+.ui-sortable > li {
+	cursor: move;
+}
+
+
+
+/** Standard Forms **/
+.standard-form p {
+	overflow: hidden;
+	padding: 8px 0px;
+	font-size: 13px;
+	border-bottom: 1px solid #eee;
+}
+.standard-form p > label {
+	display: block;
+	padding: 3px 10px 0 0;
+	float: left;
+	width: 160px;
+	word-wrap: break-word;
+}
+.standard-form .cke_chrome{
+	max-width: 99%;
+}
+.standard-form p > input {
+	width: 300px;
+}
+.standard-form .submit-row {
+	padding-left: 170px;
+}
+
+
+
+/** Page Header **/
+#page-header {
+}
+
+
+/** Page footer **/
+#page-footer .go-to-top {
+	text-align: center;
+	margin: 1em;
+}
+#page-footer .go-to-top a {
+	text-decoration: none;
+}
+
+/** Editor **/
+.editor-header {
+	margin-bottom: 40px;
+}
+.editor-header > .inner-navigation {
+	margin: 0;
+}
+.editor-header > .inner-navigation > ul {
+	margin: 0;
+}
+.editor-header > h2 {
+	color: #505050;
+	margin: 40px 0;
+}
+.editor-section {
+	margin-bottom: 80px;
+}
+
+/** Home Page **/
+.editor-home-wrapper table {
+	width: 100%;
+}
+.editor-home-wrapper td > img {
+	max-width: 150px;
+	max-height: 200px;
+}
+.editor-home-wrapper th {
+	padding: 5px 10px;
+	text-align: left;
+}
+.editor-home-wrapper td {
+	padding: 5px;
+	text-align: left;
+}
+
+/** Book **/
+.editor-book-wrapper .books-headings {
+	list-style: none;
+}
+.editor-book-wrapper .books-headings > li {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border-bottom: 1px dashed #a0a0a0;
+}
+.editor-book-wrapper .books-headings > li:hover {
+	background: #ffffc0;
+}
+
+
+/** Chapter **/
+.editor-chapter-wrapper .books-items {
+	list-style: none;
+	margin: 40px 0;
+	padding: 0;
+	font-size: 14px;
+}
+.editor-chapter-wrapper .books-items > li {
+	padding: 0.5em 10px;
+	padding-left: 70px;
+	margin: 0;
+	border-bottom: 1px dashed #a0a0a0;
+}
+
+.editor-chapter-wrapper .books-items li.h1-item {
+	padding-left: 10px;
+	cursor: default;
+}
+.editor-chapter-wrapper .books-items li.h2-item {
+	padding-left: 30px;
+}
+.editor-chapter-wrapper .books-items li.h3-item {
+	padding-left: 50px;
+}
+
+.editor-chapter-wrapper .books-items li:hover {
+	background: #ffffc0;
+}
+.editor-chapter-wrapper .buttons-toolbar {
+	float: right;
+}
+
+.editor-chapter-wrapper h3 {
+	margin-bottom: 0;
+	font-size: 1em;
+}
+.editor-preview-chapter-wrapper {
+	margin-right: 40px;
+}
+.editor-preview-chapter-wrapper .item-wrapper {
+	position: relative;
+}
+
+.editor-preview-chapter-wrapper .item-wrapper .edit-link{
+	text-decoration: none;
+	position: absolute;
+	top: 0;
+	right: -40px;
+	background: #ffffff;
+	white-space: nowrap;
+}
+.editor-preview-chapter-wrapper .item-wrapper:hover .edit-link{
+	opacity: 1;
+}
+
+/** Item **/
+.editor-item-wrapper h2 {
+	font-size: 1.2em;
+}
+.editor-item-wrapper form label {
+	font-weight: bold;
+	display: block;
+}
+.editor-item-wrapper form .helptext {
+	display: block;
+}
+.editor-item-wrapper form input{
+	width: 400px;
+}
+
+.editor-delete-item-wrapper .preview-wrapper {
+	border: 1px solid #808080;
+	padding: 20px;
+}

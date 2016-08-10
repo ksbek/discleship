@@ -1,0 +1,11 @@
+[
+  {
+    "model": "dwb_book.Marker",
+    "pk": 10,
+    "fields": {
+       "book": 1,
+       "placeholder" : "[FACT FILE]",
+       "replacement": "<span>Fact File</span>"
+    }
+  }
+]

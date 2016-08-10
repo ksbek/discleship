@@ -1,0 +1,27 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>{% block title %}{% endblock %}</title>
+        <base href="{{ BASE_URL }}">
+
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}export.css" media="screen,print" />
+        <style type="text/css">
+            {{ book.get_style|safe }}
+        </style>
+    </head>
+    <body>
+        <div class="book-cover">
+            <h1 class="book-title">{{ book.title }}</h1>
+            <div class="book-author">{{ book.author }}</div>
+        </div>
+
+    {% for item in items %}
+        {% include 'dwb_book/export/item.html' %}
+    {% endfor %}
+    </body>
+</html>

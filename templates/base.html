@@ -1,0 +1,59 @@
+{% load i18n %}
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{% block title %}Discipleship Workbooks{% endblock %}</title>
+
+    {% block meta %}
+        {% include "fragments/head_meta.html" %}
+    {% endblock %}
+
+    {% block extras %}
+        {% include "fragments/head_extras.html" %}
+    {% endblock %}
+
+    {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+
+    {% block extra_meta %}{% endblock %}
+    {% block extra_style %}{% endblock %}
+    {% block extra_script %}{% endblock %}
+    {% block extra_head %}{% endblock %}
+    </head>
+
+    <body>
+        <div id="spinner">
+            <img src="{{ STATIC_URL }}img/ajax-loader.gif" alt="Loading..."/>
+        </div>
+
+        <div id="wrapper">
+            <div id="navbar">
+            {% block navbar %}
+                {% include "fragments/navbar.html" %}
+            {% endblock %}
+            </div>
+
+            <div id="content">
+            {% block content %}
+            {% endblock %}
+
+            {% block content2 %}
+            {% endblock %}
+            </div>
+
+            <div id="footer">
+            {% block footer %}
+                {% include "fragments/footer.html" %}
+            {% endblock %}
+            </div>
+        </div>
+
+        <!-- Modals -->
+
+    {% block script %}
+        {% include "fragments/body_script.html" %}
+    {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "base_admin.html" %}
+
+{% load i18n %}
+{% load wysiwyg %}
+
+{% block content %}
+<div id="admin-home-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>{% trans "Edit" %} "{{ flatpage.title }}"</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+    <!-- WYSIWYG Editor -->
+    {% wysiwyg_setup %}
+
+<div id="admin-home-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <form id="edit-flatpage-form" action="" method="POST">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                   <button type="submit" class="btn btn-primary">{% trans "Update" %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% wysiwyg_editor "id_content" %}
+
+{% endblock %}

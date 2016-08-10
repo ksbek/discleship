@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="book-copy-delete-1"class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>{{ book.title }}</h1>
+
+                <p>{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</p>
+
+                {% include "dwb_book/inner_navigation.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="book-copy-delete-2"class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h2>{% trans "Delete Workbook" %}</h2>
+
+                <p>{% trans "You are about to delete all data in your workbook. This includes your answers to every question. Your progress will be lost. This can NOT be un-done. Are you sure you want to delete all your data in this workbook?" %}</p>
+
+                <form id="delete-book-copy-form" action="" method="POST" autocomplete="off">
+                    {% csrf_token %}
+
+                    <div class="form-inline">
+                        {{ delete_form.confirm }}
+
+                        <button type="submit" class="btn btn-danger">{% trans "Submit" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="group-join" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>{% trans "Invitation" %}</h1>
+
+                <p>
+                {% blocktrans with name=group.name title=group.book.title %}
+                    You've been invited to join "{{ name }}". This group is working on {{ title }}. Anyone in this group can see your progress, and you can see their progress. However, your responses will never be shared.
+                {% endblocktrans %}
+                </p>
+
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                    <button type="submit" class="btn btn-primary">{% trans "Join" %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

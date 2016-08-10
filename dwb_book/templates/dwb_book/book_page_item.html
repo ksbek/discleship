@@ -1,0 +1,42 @@
+{% load i18n %}
+
+<div class="{{ item.item_type }}-item">
+{% if item.item_type == "h1" %}
+    {% if item.intro %}<div class="item-intro">{{ item.intro }}</div>{% endif %}
+    <h1 class="chapter-title">{{ item.title }}</h1>
+    {{ item.content|default:""|safe }}
+
+{% elif item.item_type == "h2" %}
+    {% if item.intro %}<div class="item-intro">{{ item.intro }}</div>{% endif %}
+    <h2>{{ item.title }}</h2>
+    {{ item.content|default:""|safe }}
+
+{% elif item.item_type == "h3" %}
+    {% if item.intro %}<div class="item-intro">{{ item.intro }}</div>{% endif %}
+    <h3>{{ item.title }}</h3>
+    {{ item.content|default:""|safe }}
+
+{% elif item.item_type == "text" %}
+    {{ item.content|default:""|safe }}
+
+{% elif item.item_type == "textarea" %}
+    {{ item.content|default:""|safe }}
+
+    {% if item.id == 3851  or item.id == 3852 or item.id == 3853 or item.id == 3924 or item.id == 3925 or item.id == 3926  %}
+        <textarea name="item-{{ item.id }}" cols="40" rows="2" placeholder="{% trans 'enter your response' %}">{{ item.response }}</textarea>
+    {% elif item.id == 4060 or item.id == 4061 or item.id == 4062 or item.id == 4063 or item.id == 4064 or item.id == 4065 or item.id == 3397 or item.id == 3398 or item.id == 3399 or item.id == 3400 or item.id == 3401 %}
+        <textarea name="item-{{ item.id }}" cols="20" rows="1" placeholder="{% trans 'enter your response' %}">{{ item.response }}</textarea>
+    {% else %}
+        <textarea name="item-{{ item.id }}" cols="40" rows="6" placeholder="{% trans 'enter your response' %}">{{ item.response }}</textarea>
+    {% endif %}
+{% elif item.item_type == "boolean" %}
+    {{ item.content|default:""|safe }}
+    <label><input type="radio" name="item-{{ item.id }}" value="Yes" {% if item.response|lower == "yes" %}checked{% endif %} /> Yes</label>
+    <label><input type="radio" name="item-{{ item.id }}" value="No" {% if item.response|lower == "no" %}checked{% endif %} /> No</label>
+{% elif item.item_type == "radio" %}
+    {{ item.content|default:""|safe }}
+    {% for option in item.options %}
+    <label><input type="radio" name="item-{{ item.id }}" value="{{ option }}" {% ifequal item.response|lower option|lower %}checked{% endifequal %} /> {{ option }}</label>
+    {% endfor %}
+{% endif %}
+</div>

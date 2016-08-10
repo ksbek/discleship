@@ -1,0 +1,45 @@
+{% extends "base_editor.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="editor-home-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="editor-home-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Cover" %}</th>
+                            <th>{% trans "Title" %}</th>
+                            <th>{% trans "Status" %}</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td><img src="{{ book.cover_image.url }}" alt="" /></td>
+                            <td>{{ book.title }}</td>
+                            <td>{{ book.get_status_display }}</td>
+                            <td><a href="{% url 'editor-book' book_id=book.id %}">{% trans "Open" %}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

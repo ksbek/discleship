@@ -1,0 +1,17 @@
+{% extends "dwb_editor/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="editor-item-wrapper">
+        <h2>{% trans "Delete file for download" %}</h2>
+
+        {% trans "Do you want to delete" %} <a href="{{ file_for_download.url }}">{{ file_for_download.title }}</a>?
+
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <p><button type="submit" class="delete-button">{% trans "Delete" %}</button></p>
+        </form>
+    </div>
+{% endblock %}

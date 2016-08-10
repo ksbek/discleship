@@ -1,0 +1,77 @@
+{% extends "webbook/base.html" %}
+
+{% load i18n %}
+{% load webbook %}
+
+{% block content %}
+    <div class="store-discounts-buy-wrapper">
+        <h1 class="book-title"><a href="{% url 'dwb_overview' book_slug=book.slug %}">{{ book.title }}</a></h1>
+        <div class="book-author">{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</div>
+
+        <p>
+            <strong>{% trans "Important:" %}</strong>
+        {% blocktrans %}
+            All purchases are final. We do not provide refunds for gift-codes that were not fully used. Please read our <a href="">terms of service</a> before making a purchase.
+        {% endblocktrans %}
+        </p>
+
+    {% if book.status == "active" %}
+        <table class="book-prices">
+            <thead>
+                <tr>
+                    <th>{% trans "Quantity" %}</th>
+                    <th>{% trans "Price per Unit" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for quantity, price in book.get_prices %}
+                <tr>
+                    <td>{{ quantity }} {% trans "or more" %}</td>
+                    <td>{{ price|price }}</td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td>{% trans "Price for Pastors/Leaders" %}</td>
+                    <td>{{ book.priest_price|price }}</td>
+                </tr>
+            </tbody>
+        </table>
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block content2 %}
+    <div class="store-discounts-buy-wrapper">
+    {% if book.status == "active" %}
+        <form action="" method="post" class="form-horizontal">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label class="control-label">{% trans "Quantity" %}</label>
+                <input name="quantity" type="number" value="1" min="1" max="999" class="controls" required />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">{% trans "Invite to a group" %}</label>
+                <span class="controls">
+                    <select name="group" >
+                        <option value="">- {% trans "none" %} -</option>
+                        <option value="new">{% trans "Create new group" %} </option>
+                    {% for group in groups %}
+                        <option value="{{ group.id }}">{{ group.name }}</option>
+                    {% endfor %}
+                    </select>
+
+                    <input name="group_name" type="text" value="" placeholder="Group's name" />
+                </span>
+                <p class="help-block">{% trans "Everyone in a group can see each other's progress but not answers." %}</p>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-button controls">{% trans "Continue" %}</button>
+            </div>
+        </form>
+    {% else %}
+        <p>{% trans "This book is not for sale at this time. Please check back later." %}</p>
+    {% endif %}
+    </div>
+{% endblock %}

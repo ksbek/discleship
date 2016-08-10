@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<div id="book-overview" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="thumbnail">
+                            <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" />
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <h1>{{ book.title }}</h1>
+
+                        <p>{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</p>
+
+                        <div class="navigation-list">
+                            <ul>
+                                <li><a href="{% url 'book-toc' book_slug=copy.book.slug %}">{% trans "Table of Contents" %}</a></li>
+                                <li><a href="{% url 'book-resume' book_slug=copy.book.slug %}">{% trans "Resume Workbook" %}</a></li>
+                                <li><a href="{% url 'book-export' book_slug=book.slug %}">{% trans "Export to PDF" %}</a></li>
+                                <li><a href="{% url 'book-copy-delete' book_slug=copy.book.slug %}">{% trans "Delete Data" %}</a></li>
+                            </ul>
+                        </div>
+
+                        <h2>{% trans "My Workbook Progress" %}</h2>
+
+                        <label>{{ copy.overall_progress|floatformat:"0" }}%</label>
+                        <div class="progress progress-striped">
+                            <div class="progress-bar progress-bar-info" role="progressbar" data-value="{{ copy.overall_progress|floatformat:"0" }}" aria-valuenow="{{ copy.overall_progress|floatformat:"0" }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                {% blocktrans %}
+                    If you find this workbook valuable, you can <a class="tell-friend" href="javascript:">tell</a> a friend or a family member.
+                {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="book-overview-groups" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h2>{% trans "My Groups" %}</h2>
+
+                <p>
+                    {% trans "When you belong to a group, you can see progress of other people in that group, and they can see yours." %} <a href="{% url 'group-create' book_slug=book.slug %}" style='color:#329CCB'>{% trans "Create a new group" %}</a> {% trans "for your friends." %}
+                </p>
+
+                <p>
+                    <a href="{% url 'group-create' book_slug=book.slug %}" class="btn btn-primary">{% trans "New Group" %}</a>
+                </p>
+
+            {% if groups %}
+                <div class="row">
+                {% for group in groups %}
+                    <div class="col-xs-24 col-sm-24 col-md-24">
+                        <h3>{{ group.name }}
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-toggle="dropdown">
+                                    <img src="{% static 'img/gear-24.png' %}">
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'group-invite' group_id=group.id %}">{% trans "Invite a friend" %}</a></li>
+                                {% if group.can_message_group %}
+                                    <li><a href="javascript:" class="group-message" data-recipient-name="{{ group.name }}" data-group-id="{{ group.id }}">{% trans "Send a message" %}</a></li>
+                                {% endif %}
+                                    <li><a href="{% url 'group-rename' group_id=group.id book_slug=book.slug %}">{% trans "Rename this group" %}</a></li>
+                                    <li><a href="{% url 'group-leave' group_id=group.id %}">{% trans "Leave this group" %}</a></li>
+                                </ul>
+                            </div>
+                        </h3>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <label>{% trans "My Progress" %}</label>
+                                <div class="progress-wrapper">
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar " role="progressbar" data-value="{{ group.my_progress|floatformat:"0" }}" aria-valuenow="{{ group.my_progress|floatformat:"0" }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% for member in group.members %}
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <label>{{ member.full_name }}</label>
+                                <a href="javascript:" class="group-message" data-recipient-name="{{ member.full_name}}" data-user-id="{{ member.id }}" style='color:#329CCB'>[&nbsp;{% trans "Send Message" %}&nbsp;]</a>
+                                <a href="javascript:" class="remove-member pull-right" style="color:red" member-id="{{ member.member_id }}">[&nbsp;{% trans "Remove" %}&nbsp;]</a>
+                                <div class="progress-wrapper">
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar" role="progressbar" data-value="{{ member.progress|floatformat:"0" }}" aria-valuenow="{{ member.progress|floatformat:"0" }}" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {% for invitee in group.invitees %}
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <label>{{ invitee.full_name }} <span class="badge">{% trans "Not registered" %}</span></label>
+                                <a href="javascript:" class="remove-invite pull-right" style="color:red" invite-code="{{ invitee.code }}">[&nbsp;{% trans "Remove" %}&nbsp;]</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+
+{% include 'dwb_book/modals/tell_friend_modal.html' %}
+{% include 'dwb_book/modals/send_group_message_modal.html' %}
+
+<!-- Scripts -->
+
+<script>
+    /*********************************************************************/
+    /*** Remove Invitee                                                ***/
+    /*********************************************************************/
+    $(".remove-invite").click(function (event) {
+        element = $(this);
+
+        var event = window.event || event;
+        event.preventDefault();
+
+        var invite_code = $(this).attr("invite-code");
+
+        var c = confirm("Remove - are you sure?");
+        if (c == true) {
+            $.post(
+                "{% url 'ajax_invite_remove_from_group' %}",
+                {
+                    "invite_code":          invite_code,
+                    "csrfmiddlewaretoken":  $("input[name='csrfmiddlewaretoken']").val()
+                }
+            ).done(function (data) {
+                console.log("Success");
+                $(element).parent().hide("slow", function () {
+                    //fixFooter();
+                });
+            }
+            ).fail(function (data) {
+                console.log(data);
+                console.log("Fail");
+                alert("Fail");
+            });
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    /*********************************************************************/
+    /*** Remove Member                                                 ***/
+    /*********************************************************************/
+    $(".remove-member").click(function (event) {
+        element = $(this);
+
+        var event = window.event || event;
+        event.preventDefault();
+
+        var member_id = $(this).attr("member-id");
+
+        var c = confirm("Remove - are you sure?");
+        if (c == true) {
+            $.post(
+                "{% url 'ajax_member_remove_from_group' %}",
+                {
+                    "member_id":            member_id,
+                    "csrfmiddlewaretoken":  $("input[name='csrfmiddlewaretoken']").val()
+                }
+            ).done(function (data) {
+                console.log("Success");
+                $(element).parent().hide("slow", function () {
+                    //fixFooter();
+                });
+            }
+            ).fail(function (data) {
+                console.log(data);
+                console.log("Fail");
+                alert("Fail");
+            });
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    /*********************************************************************/
+    /*** Tell a friend or a family member pop-up modal                 ***/
+    /*********************************************************************/
+    var $msg_dialog = $("#tell-friend-dialog");
+    var $msg_form = $msg_dialog.find("form");
+    var $msg_alert = $msg_dialog.find(".alert");
+
+    $msg_dialog.find("input[name='book-url']").val(window.location.href);
+
+    console.log(">>> DIALOG :" + $msg_dialog);
+    console.log(">>> FORM   :" + $msg_form);
+    console.log(">>> ALERT  :" + $msg_alert);
+
+    $("a.tell-friend").click(function (event) {
+        var event = window.event || event;
+        event.preventDefault();
+
+        $msg_dialog.find(".alert").attr("class", "alert").hide();
+        $msg_dialog.modal("show");
+    });
+
+    $msg_dialog.find(".btn-primary").click(function () {
+        var data = $msg_form.serialize();
+        var url = $msg_form.attr("action");
+
+        show_message("info", "{% trans 'Sending...' %}");
+        $.post(url, data, function (resp) {
+            if ( resp.error ) {
+                show_message("danger", resp.error);
+            } else if ( resp.success ) {
+                show_message("success", resp.success);
+            } else {
+                $msg_dialog.modal("hide");
+            }
+        }, "json").always(function () {
+        });
+    });
+
+    function show_message(type, text) {
+        $msg_alert.attr("class", "alert").addClass("alert-" + type).text(text).show();
+    }
+</script>
+{% endblock %}

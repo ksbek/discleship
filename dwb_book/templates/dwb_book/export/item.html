@@ -1,0 +1,30 @@
+{% load i18n %}
+
+{% if item.item_type == "h1" %}
+    <div class="h1-item">
+        {% if item.intro %}<div class="item-intro">{{ item.intro }}</div>{% endif %}
+        <h1 class="chapter-title">{{ item.title }}</h1>
+        {{ item.content|default:""|safe }}
+    </div>
+{% elif item.item_type == "h2" %}
+    <div class="h2-item">
+        {% if item.intro %}<div class="item-intro">{{ item.intro }}</div>{% endif %}
+        <h2>{{ item.title }}</h2>
+        {{ item.content|default:""|safe }}
+    </div>
+{% elif item.item_type == "h3" %}
+    <div class="h3-item">
+        {% if item.intro %}<div class="item-intro">{{ item.intro }}</div>{% endif %}
+        <h3>{{ item.title }}</h3>
+        {{ item.content|default:""|safe }}
+    </div>
+{% elif item.item_type == "text" %}
+    <div class="text-item">
+        {{ item.content|default:""|safe }}
+    </div>
+{% elif item.is_input %}
+    <div class="input-item">
+        {{ item.content|default:""|safe }}
+        <div class="response-value">{% if item.response %}{{ item.response }}{% else %}- {% trans "no response" %} -{% endif %}</div>
+    </div>
+{% endif %}

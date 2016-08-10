@@ -1,0 +1,42 @@
+[
+  {
+    "model": "dwb_book.Copy",
+    "pk": 1,
+    "fields": {
+      "book": 2,
+      "user": 1,
+      "current_item": 10,
+      "status": "progress"
+    }
+  },
+  {
+    "model": "dwb_book.Copy",
+    "pk": 2,
+    "fields": {
+      "book": 1,
+      "user": 2,
+      "current_item": 10,
+      "status": "progress"
+    }
+  },
+  {
+    "model": "dwb_book.Copy",
+    "pk": 3,
+    "fields": {
+      "book": 2,
+      "user": 2,
+      "current_item": 10,
+      "status": "progress"
+    }
+  },
+  {
+    "model": "dwb_book.Copy",
+    "pk": 4,
+    "fields": {
+      "book": 1,
+      "user": 3,
+      "current_item": 10,
+      "status": "progress"
+    }
+  }
+]

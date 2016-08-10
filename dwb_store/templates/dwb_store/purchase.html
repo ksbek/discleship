@@ -1,0 +1,42 @@
+{% extends "webbook/base.html" %}
+
+{% load i18n %}
+{% load webbook %}
+
+{% block content %}
+    <div class="store-purchase-wrapper">
+        <h1 class="book-title"><a href="{% url 'dwb_overview' book_slug=book.slug %}">{{ book.title }}</a></h1>
+        <div class="book-author">{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</div>
+
+    {% if book.status == "active" %}
+        <p class="store-price">Price: <span style="font-family:courier new">{{ book.price|price }}</span></p>
+        <p>
+        {% blocktrans with title=book.title author=book.author %}
+            Thank you for your interest in "{{ title }}" by {{ author }}. Please read our <a href="/terms-of-service/">terms of service</a> before purchasing this workbook.
+        {% endblocktrans %}
+        </p>
+        <p>
+            {% trans "If you are a pastor, group leader or to see available bulk discounts," %}<a href="{% url 'dwb_discounts_buy' book_slug=book.slug %}">{% trans "click here" %}</a>
+        </p>
+        <p>{% trans "You can purchase access to this workbook for yourself or for a friend. Which one would you like?" %}</p>
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block content2 %}
+{% if book.status == "active" %}
+    <div class="buy_buttons">
+        <form action="{% url 'dwb_purchase' book_slug=book.slug %}" method="post">
+            {% csrf_token %}
+
+            <button name="gift" value="" class="start-button">{% trans "Buy for myself" %}</button>
+            <button name="gift" value="1" class="start-button">{% trans "Buy as a gift" %}</button>
+            <button name="bulk_purchase" class="start-button" onclick="javascript:window.open('{% url 'dwb_discounts_buy' book_slug=book.slug %}','_self');return false;">{% trans "Order Bulk" %}</button>
+            <button name="gift_code" class="start-button" onclick="javascript:window.open('{% url 'dwb_redeem' %}','_self');return false;">{% trans "Redeem a gift code" %}</button>
+            <input type="hidden" name="priest" value="0">
+        </form>
+    </div>
+{% else %}
+    <p>{% trans "This book is not for sale at this time. Please check back later." %}</p>
+{% endif %}
+{% endblock %}

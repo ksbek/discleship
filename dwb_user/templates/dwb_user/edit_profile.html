@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+        		<h3>{% trans "Update Profile" %}</h3>
+
+		        <form id="edit-profile-form" action="" method="POST">
+		            {% csrf_token %}
+
+		            {{ form.as_p }}
+
+		            {{ infoform.as_p }}
+
+		            <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+		        </form>
+		    </div>
+
+    		<div class="col-xs-12 col-sm-12 col-md-12">
+    		</div>
+    	</div>
+    </div>
+</div>
+{% endblock %}

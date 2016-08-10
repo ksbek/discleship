@@ -1,0 +1,104 @@
+{% extends "base_admin.html" %}
+
+{% load i18n %}
+{% load flatpages %}
+
+{% block content %}
+<div id="admin-home-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="inner-navigation">
+                    <ul>
+                    {% if perms.dwb_store.add_purchase %}
+                        <li><a href="{% url 'admin-add-purchase' %}">{% trans "Create Gift Code" %}</a></li>
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="admin-home-1" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+
+            <h2>{% trans "Books" %}</h2>
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>
+                            <a href="{% url 'editor-book' book_id=book.id %}">{% trans "Editor" %}</a>
+                        {% if perms.dwb_store.change_purchase %}
+                            <span class="vert-delimiter">|</span><a href="{% url 'admin-book-purchases' book_id=book.id %}">{% trans "Purchases" %}</a>
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        {% if perms.flatpages.change_flatpage %}
+            <h2>{% trans "Pages" %}</h2>
+
+            {% get_flatpages as flatpages %}
+
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Page</th>
+                        <th>Author</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for page in flatpages %}
+                    <tr>
+                        <td>{{ page.title }}</td>
+                        <td></td>
+                        <td>
+                            <a href="{{ page.url }}">{% trans "view" %}</a><span class="vert-delimiter">|</span><a href="{% url 'admin-edit-flatpage' page_id=page.id %}">{% trans "edit" %}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <h2>{% trans "Messages" %}</h2>
+
+                    <form id="populate-message-form" method="post" action=".">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <textarea id="message" name="message" class="form-control" rows="5" style="{% if error_msg %}border: 2px solid red;{% endif %}"></textarea>
+                            {% if error_msg %}<span class="help-block" style="color:red; font-style:italic;">{{ error_msg }}</span>{% endif %}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">{% trans "Populate" %}</button>
+                    </form>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

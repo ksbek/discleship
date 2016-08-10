@@ -1,0 +1,44 @@
+
+/** General **/
+
+td, th {
+	text-align: left;
+}
+#page-footer .go-to-top {
+	text-align: center;
+}
+
+/** Admin Home **/
+.admin-home-wrapper table {
+	width: 100%;
+}
+.admin-home-wrapper th {
+	text-align: left;
+}
+
+/** Purchase list **/
+.admin-purchase-list-wrapper table {
+	border-collapse: collapse;
+	width: 100%;
+}
+.admin-purchase-list-wrapper thead th {
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+.admin-purchase-list-wrapper td {
+	padding: 5px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+/** Purchase Detail **/
+.admin-purchase-wrapper table {
+	border-collapse: collapse;
+}
+.admin-purchase-wrapper thead th {
+	border-bottom: 1px solid black;
+	padding: 5px 10px;
+}
+.admin-purchase-wrapper td {
+	padding: 5px 10px;
+	border-bottom: 1px solid #e0e0e0;
+}

@@ -1,0 +1,73 @@
+{% extends "base_editor.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="editor-chapter-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>{{ book.title }}</h1>
+
+                <p>{% blocktrans with author=book.author %}By {{ author }}{% endblocktrans %}</p>
+
+                <div class="inner-navigation">
+                    <ul>
+                        <li><a href="{% url 'editor-book' book_id=book.id %}">{% trans "Book Overview" %}</a><li></li>
+                        <li><a href="{% url 'editor-preview-chapter' book_id=book.id item_id=first_item.id %}">{% trans "Preview Chapter" %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+<div id="editor-chapter-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="editor-section">
+                    <ol class="books-items" data-sort-items-url="{% url 'editor-sort-items' book_id=book.id %}">
+                    {% for item in items %}
+                        <li class="{{ item.item_type }}-item" id="item-{{ item.id }}">
+                            <input type="hidden" name="items" value="{{ item.id }}">
+
+                            <strong>{{ item.get_item_type_display }}: </strong> {{ item.title }}
+
+                            <ul class="buttons-toolbar">
+                                <li>
+                                    <a href="{% url 'editor-item' book_id=book.id item_id=item.id %}">{% trans "Edit" %}</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'editor-delete-item' book_id=book.id item_id=item.id %}">{% trans "Delete" %}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endfor %}
+                    </ol>
+                </div>
+
+                <div class="editor-section">
+                    <form action="{% url 'editor-add-item' book_id=book.id %}" method="post" >
+                        <input type="hidden" name="insert_after" value="{{ last_item.id}}" />
+
+                        {% csrf_token %}
+
+                        <h3>{% trans "Add Text" %}</h3>
+                        <button type="submit" name="item_type" value="h2" class="btn btn-default">{% trans "Heading 2" %}</button>
+                        <button type="submit" name="item_type" value="h3" class="btn btn-default">{% trans "Heading 3" %}</button>
+                        <button type="submit" name="item_type" value="text" class="btn btn-default">{% trans "Formatted Text" %}</button>
+
+                        <h3>{% trans "Add Question" %}</h3>
+                        <button type="submit" name="item_type" value="textarea" class="btn btn-default">{% trans "Type-in Question" %}</button>
+                        <button type="submit" name="item_type" value="boolean" class="btn btn-default">{% trans "Yes/No Question" %}</button>
+                        <button type="submit" name="item_type" value="radio" class="btn btn-default">{% trans "Multiple Choice Question" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+Hello {{ purchase.recipient_name }},
+
+{{ purchase.buyer_user.first_name|default:'Your friend' }} purchased a copy of {{ purchase.book.title }} on Discipleship Workbooks. You can access this workbook by using the following gift code.
+
+Gift Code: {{ purchase.gift_code }}
+
+Redeem at: {{ redeem_url }}
+
+Sincerely,
+Discipleship Workbooks Team
+

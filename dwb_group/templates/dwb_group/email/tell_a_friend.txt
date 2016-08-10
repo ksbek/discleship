@@ -1,0 +1,18 @@
+{% load i18n %}
+
+{% blocktrans with sender=sender.first_name email=sender.email text_1=text book_url_1=book_url %}
+
+Hello,
+
+{{ sender }} ({{ email }}) sent you a message:
+
+{{ text_1 }}
+
+Click the link bellow to see more information:
+
+{{ book_url_1 }}
+
+Sent by Discipleship Workbooks Team
+team@discipleshipworkbooks.com
+
+{% endblocktrans %}

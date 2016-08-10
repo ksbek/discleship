@@ -1,0 +1,23 @@
+{% extends "webbook/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="store-purchase-wrapper">
+        <p>{% trans "Confirm your purchase below." %}</p>
+
+        {% include 'webbook/store/invoice_table.html' %}
+
+        <form action="" method="post" class="horizontal-p-form">
+            {% csrf_token %}
+
+        {% if form %}
+            <p>{% trans "You are buying this book as a gift. We will email a gift code right after purchase.<br>Who do you want to send this gift code to?" %}</p>
+            {{ form.as_p }}
+        {% endif %}
+            <p class="submit-row"><button type="submit" class="submit-button">{% trans "Pay Now" %}</button></p>
+        </form>
+
+        <p>{% trans "Changed your mind?" %} <a href="{{ cancel_url }}">{% trans "Cancel purchase." %}</a></p>
+    </div>
+{% endblock %}

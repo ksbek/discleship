@@ -1,0 +1,61 @@
+{% extends "base_editor.html" %}
+
+{% load i18n %}
+{% load wysiwyg %}
+
+{% block content %}
+<div id="editor-item-1" class="page-content-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <h1>{{ book.title }}</h1>
+
+                <p>{{ book.author }}</p>
+
+                <div class="inner-navigation">
+                    <ul>
+                        <li><a href="{% url 'editor-book' book_id=book.id %}">{% trans "Book Overview" %}</a></li>
+                        <li><a href="{% url 'editor-chapter' book_id=book.id item_id=item.id %}">{% trans "Chapter Overview" %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content2 %}
+    <!-- WYSIWYG Editor -->
+    {% wysiwyg_setup %}
+
+<div id="editor-item-2" class="page-content-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="editor-section">
+                    <h2>{% trans "Editing" %} {{ item.get_item_type_display }}</h2>
+                    <h3>"{{ item.title }}"</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-24 col-sm-24 col-md-24">
+                <div class="editor-section">
+                    <form id="edit-book-item-form" action="" method="post">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% wysiwyg_editor "id_content" %}
+    {% wysiwyg_editor "id_footnotes" %}
+
+{% endblock %}

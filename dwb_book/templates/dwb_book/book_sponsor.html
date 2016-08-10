@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="group-sponsor-wrapper">
+        <h1 class="large-heading">{% trans "Sponsor a Friend" %}</h1>
+
+        <p>
+        {% blocktrans with title=book.title name=group.name %}
+            Sponsor a friend so they can work on {{ title }} with your group "{{ name }}".
+        {% endblocktrans %}
+        </p>
+
+        <form action="" method="post" class="standard-p-form">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <p class="submit-row">
+                <button type="submit" class="submit-button">{% trans "Continue" %}</button>
+            </p>
+        </form>
+    </div>
+{% endblock %}

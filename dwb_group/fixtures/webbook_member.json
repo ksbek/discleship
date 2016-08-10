@@ -1,0 +1,20 @@
+[
+  {
+    "model": "dwb_group.Member",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "group": 1,
+      "date_joined" : "2013-01-02 1:00:00Z"
+    }
+  },
+  {
+    "model": "dwb_group.Member",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "group": 2,
+      "date_joined" : "2013-01-02 1:00:00Z"
+    }
+  }
+]

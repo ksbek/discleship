@@ -1,0 +1,32 @@
+{% extends "webbook/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="store-redeem-wrapper">
+    {% if book %}
+        <p>
+        {% blocktrans with gift_code=code title=book.title author=book.author %}
+            Do you want to redeem gift code ({{ gift_code }}) for <b>{{ title }}</b> by {{ author }}?
+        {% endblocktrans %}
+        </p>
+
+        <form action="{% url 'dwb_redeem' %}" method="post"  autocomplete="off">
+            {% csrf_token %}
+
+            <input type="hidden" name="code" value="{{ code }}" />
+            <button type="submit" class="submit-button">{% trans "Redeem" %}</button>
+        </form>
+    {% else %}
+        <p>{% trans "If you received a gift code, please enter it below to get access to your workbook." %}</p>
+
+        <form action="{% url 'dwb_redeem' %}" method="get"  autocomplete="off" class="inline-p-form" >
+            <p>
+                <label>{% trans "Gift Code:" %}</label>
+                <input type="text" name="code" value="" />
+                <button type="submit" class="submit-button">{% trans "Submit" %}</button>
+            </p>
+        </form>
+    {% endif %}
+    </div>
+{% endblock %}
